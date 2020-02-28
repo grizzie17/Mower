@@ -6,7 +6,10 @@
 	],
 	"extensions": {
 		"recommendations": [
-			"ms-vscode.cpptools"
+			"ms-vscode.cpptools",
+			"maelvalais.autoconf",
+			"github.vscode-pull-request-github",
+			"laurenttreguier.uncrustify"
 		]
 	},
 	"settings": {
@@ -32,5 +35,6 @@
 				"username": "grizzie17"
 			}
 		],
+		"editor.tabCompletion": "on"
 	}
 }
