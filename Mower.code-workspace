@@ -1,0 +1,36 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools"
+		]
+	},
+	"settings": {
+		"terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
+		"terminal.integrated.shellArgs.windows":[
+			"--login", "-i"
+		],
+		"terminal.integrated.env.windows": {
+			"MSYSTEM": "MINGW64",
+			"CHERE_INVOKING": "1"
+		},
+
+
+
+		"github.repositories": [
+			"grizzie17/Mower"
+		],
+		"github.host": "github.com",
+		"github.username": "grizzie17",
+		"githubPullRequests.hosts": [
+			{
+				"host": "https://github.com",
+				"username": "grizzie17"
+			}
+		],
+	}
+}

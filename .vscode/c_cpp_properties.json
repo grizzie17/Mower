@@ -1,0 +1,84 @@
+{
+    "configurations": [
+        {
+            "name": "wsl",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "defines": [
+                "CONFNAME=wsl",
+                "_DEBUG",
+                "OPENGL",
+                "UNICODE",
+                "LINUX"
+            ],
+            "includePath": [
+                ".",
+                "${workspaceFolder}",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/**/**",
+                "${workspaceFolder}/**/**/**"
+            ]
+        },
+        {
+            "name": "MSYS",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "C:\\msys64\\mingw64\\bin\\x86_64-w64-mingw32-gcc.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "defines": [
+                "CONFNAME=MSYS",
+                "_DEBUG",
+                "DEVROOT=${workspaceFolder}",
+                "OPENGL",
+                "GLUT"
+            ],
+            "includePath": [
+                ".",
+                "${workspaceFolder}",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/**/**",
+                "${workspaceFolder}/**/**/**"
+            ]
+        },
+        {
+            "name": "linux",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "LINUX",
+                "OPENGL",
+                "GLUT"
+            ],
+            "includePath": [
+                ".",
+                "${workspaceFolder}",
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/**/**",
+                "${workspaceFolder}/**/**/**"
+            ]
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/**/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.22.27905/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++14",
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}
