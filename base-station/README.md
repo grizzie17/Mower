@@ -1,5 +1,16 @@
 # Base-Station #
 
+*We may need to change the name of this component*
+
+There are several jobs for this component:
+
+* Differential GPS
+* Managing positioning data for things like cutting boundaries, no-cut zones, obstacles, etc.
+* Tracking mower position and orientation
+* Tracking cutting progress
+* Managing mowers
+* Serving data for the `Display` subsystem
+
 The base-station has several jobs. One of the more important of which is to calculate GPS drift and communicate correction vectors to the `Mowers`.
 
 The other significant job is to continually keep track of the mowers and provide instructions to each mowing unit as to what to do next.

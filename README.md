@@ -1,6 +1,3 @@
-# Mower
-simulation for autonomous lawn mower
-
 # Automatic / Robotic Lawnmower(s) #
 
 In general, a robotic lawnmower will cut/maintain the bulk of a lawn without human intervention.

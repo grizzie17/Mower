@@ -35,6 +35,14 @@
 				"username": "grizzie17"
 			}
 		],
-		"editor.tabCompletion": "on"
+		"editor.tabCompletion": "on",
+		"cSpell.enableFiletypes": [
+			"!c",
+			"!c++",
+			"!code-workspace",
+			"!cpp",
+			"markdown"
+		],
+		"cSpell.enabled": true
 	}
 }
