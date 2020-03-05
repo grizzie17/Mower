@@ -1,4 +1,5 @@
 {
+	// spell-checker: disable
 	"folders": [
 		{
 			"path": "."
@@ -13,17 +14,28 @@
 		]
 	},
 	"settings": {
+		"editor.formatOnType": true,
+		"editor.formatOnSave": true,
+		"[cpp]": {
+			"editor.defaultFormatter": "ms-vscode.cpptools",
+		},
+		"workbench.colorCustomizations": {
+			// "titleBar.activeBackground": "#523232",
+			// "titleBar.inactiveBackground": "#413030",
+			"activityBar.background": "#233f1f"
+		},
 		"terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
-		"terminal.integrated.shellArgs.windows":[
-			"--login", "-i"
+		"terminal.integrated.shellArgs.windows": [
+			"--login",
+			"-i"
 		],
 		"terminal.integrated.env.windows": {
 			"MSYSTEM": "MINGW64",
 			"CHERE_INVOKING": "1"
 		},
-
-
-
+		"C_Cpp.clang_format_path": "C:/Program Files/LLVM/bin/clang-format.exe",
+		//"C_Cpp.formatting": "Disabled",
+		//"uncrustify.configPath.windows": "uncrustify.cfg",
 		"github.repositories": [
 			"grizzie17/Mower"
 		],
@@ -37,10 +49,9 @@
 		],
 		"editor.tabCompletion": "on",
 		"cSpell.enableFiletypes": [
-			"!c",
-			"!c++",
-			"!code-workspace",
-			"!cpp",
+			"!asciidoc",
+			"c++",
+			"cpp",
 			"markdown"
 		],
 		"cSpell.enabled": true
