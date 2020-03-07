@@ -1,0 +1,25 @@
+--- a/test-driver	2018-12-07 15:01:10.463710400 -0600
++++ b/test-driver	2018-12-07 12:31:23.177481600 -0600
+@@ -106,6 +106,12 @@
+ # Test script is run here.
+ "$@" >$log_file 2>&1
+ estatus=$?
++if [ 0 -eq $estatus ]; then
++  grep '[1-9][0-9]* failed.' $log_file &>/dev/null
++  if [ 0 -eq $? ]; then
++    estatus=1
++  fi
++fi
+
+ if test $enable_hard_errors = no && test $estatus -eq 99; then
+   tweaked_estatus=1
+@@ -127,6 +133,9 @@
+ # file, without the need of also peaking into the corresponding '.trs'
+ # file (automake bug#11814).
+ echo "$res $test_name (exit status: $estatus)" >>$log_file
++if [ 0 -ne $tweaked_estatus ]; then
++  cat $log_file
++fi
+
+ # Report outcome to console.
+ echo "${col}${res}${std}: $test_name"

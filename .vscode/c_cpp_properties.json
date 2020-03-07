@@ -40,7 +40,8 @@
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/**/**",
                 "${workspaceFolder}/**/**/**"
-            ]
+            ],
+            "configurationProvider": "vector-of-bool.cmake-tools"
         },
         {
             "name": "linux",

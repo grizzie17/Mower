@@ -9,8 +9,7 @@
 		"recommendations": [
 			"ms-vscode.cpptools",
 			"maelvalais.autoconf",
-			"github.vscode-pull-request-github",
-			"laurenttreguier.uncrustify"
+			"github.vscode-pull-request-github"
 		]
 	},
 	"settings": {
@@ -24,6 +23,20 @@
 			// "titleBar.inactiveBackground": "#413030",
 			"activityBar.background": "#233f1f"
 		},
+		// "cmake.cmakePath": "C:/msys64/usr/bin/cmake",
+		// "cmake.buildTask": true,
+		// "cmake.mingwSearchDirs": [
+		// 	"/c/msys64/mingw64",
+		// 	"/c/msys64"
+		// ],
+		// "cmake.configureEnvironment": {
+		// 	"CMAKE_CXX_COMPILER": "/c/msys64/mingw64/bin/x86_64-w64-mingw32-g++.exe",
+		// 	"CMAKE_C_COMPILER": "/c/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe"
+		// },
+		// "cmake.buildEnvironment": {
+		// 	"CMAKE_CXX_COMPILER": "/c/msys64/mingw64/bin/x86_64-w64-mingw32-g++.exe",
+		// 	"CMAKE_C_COMPILER": "/c/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe"
+		// },
 		"terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
 		"terminal.integrated.shellArgs.windows": [
 			"--login",
