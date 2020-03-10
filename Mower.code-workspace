@@ -23,21 +23,33 @@
 			// "titleBar.inactiveBackground": "#413030",
 			"activityBar.background": "#233f1f"
 		},
-		// "cmake.cmakePath": "C:/msys64/usr/bin/cmake",
+		//========= CMAKE ==========//
+		"cmake.cmakePath": "C:/msys64/mingw64/bin/cmake.exe",
 		// "cmake.buildTask": true,
+		// "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
 		// "cmake.mingwSearchDirs": [
-		// 	"/c/msys64/mingw64",
-		// 	"/c/msys64"
+		// 	"/mingw64",
+		// 	"/usr/bin"
 		// ],
+		// "cmake.clearOutputBeforeBuild": true,
+		// "cmake.generator": "Unix Makefiles",
+		// "cmake.preferredGenerators": [
+		// 	"Ninja",
+		// 	"Unix Makefiles"
+		// ],
+		// "cmake.configureSettings": {
+		// 	"CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-g++.exe",
+		// 	"CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe"
+		// },
 		// "cmake.configureEnvironment": {
-		// 	"CMAKE_CXX_COMPILER": "/c/msys64/mingw64/bin/x86_64-w64-mingw32-g++.exe",
-		// 	"CMAKE_C_COMPILER": "/c/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe"
+		// 	"CMAKE_CXX_COMPILER": "x86_64-w64-mingw32-g++",
+		// 	"CMAKE_C_COMPILER": "x86_64-w64-mingw32-gcc"
 		// },
 		// "cmake.buildEnvironment": {
-		// 	"CMAKE_CXX_COMPILER": "/c/msys64/mingw64/bin/x86_64-w64-mingw32-g++.exe",
-		// 	"CMAKE_C_COMPILER": "/c/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe"
+		// 	"CMAKE_CXX_COMPILER": "x86_64-w64-mingw32-g++.exe",
+		// 	"CMAKE_C_COMPILER": "x86_64-w64-mingw32-gcc.exe"
 		// },
-		"terminal.integrated.shell.windows": "C:\\msys64\\usr\\bin\\bash.exe",
+		"terminal.integrated.shell.windows": "C:/msys64/usr/bin/bash.exe",
 		"terminal.integrated.shellArgs.windows": [
 			"--login",
 			"-i"

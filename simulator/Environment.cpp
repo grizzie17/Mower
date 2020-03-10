@@ -1,3 +1,6 @@
+//=========================================================
+///	@file: Environment.cpp
+//=========================================================
 
 #include "Environment.hpp"
 
@@ -40,5 +43,9 @@ Environment::Environment()
 	m_aDTM[4][3] = 0.0;
 	m_aDTM[4][4] = 0.0;
 }
+
+void
+Environment::display( VDrawPtr pDraw )
+{}
 
 }} // namespace Yogi::Simulator

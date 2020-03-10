@@ -74,20 +74,25 @@
 		{
 			"label": "cmake build all",
 			"type": "shell",
-			"command": "cmake",
-			"args": [
-				"--build",
-				"."
-			],
+			"command": "./build-cmake.sh",
 			"options": {
-				"cwd": "${workspaceFolder}/build"
+				"cwd": "${workspaceFolder}"
 			},
 			"group": {
 				"kind": "build",
 				"isDefault": true
 			},
 			"problemMatcher": [
-				"$gcc"
+				{
+					"pattern": {
+						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5
+					}
+				}
 			]
 		},
 		{

@@ -1,22 +1,72 @@
 # Automatic / Robotic Lawnmower(s) #
 
+Project name: `Cutter`
+
 In general, a robotic lawnmower will cut/maintain the bulk of a lawn without human intervention.
 
-There are several different makes of Robotic Lawnmowers on the market today.  They all share the feature of "maintaining" a yard instead of "cutting" a yard.  The "maintaining" is a great idea given the mower trims a little of the yard every day.  The problem with this approach is that the mowers can rarely handle large areas (many of the brands limit the area to 1/4 to 1/2 acre).  Another problem is that the mower is vulnerable to theft or vandalism while cutting.
+There are several different makes of Robotic Lawnmowers on the market today.  They all share the feature of "maintaining" a yard instead of "cutting" a yard.  The "maintaining" is a great idea given the mower trims a little of the yard every day.  The problem with this approach is that the mowers can rarely handle large areas (many of the brands limit the area to 1/4 to 1/2 acre). Many of these brands require the customer to bury wires that identify the limits of the yard, and around obstacles (such as gardens, driveways, etc.).
 
 ## Requirements ##
 
-*	Boundary recognition (without using buried wires)
+### Setup ###
+
+Setup must be very simple.
+
+Essentially we want the setup to be a very short two step process. First is positioning a `base-station` in the yard. Second is identifying the boundaries of the yard.
+
+#### Base Station ####
+
+The customer should identify the position of a `base-station` that anchors the cutting system to the yard. The `base-station` should be in a consistent position for every time the lawnmower(s) cut the yard.
+
+The `base-station` should be allowed to be either permanently mounted or positioned over a yard monument.
+
+The next step is to identify the limits of cutting.
+
+
+#### Boundary Recognition ####
+
+We do NOT want to use any form of buried wires to identify the valid cutting area for a yard.
+
+The customer should be able to turn on the `base-station` and then use a smartphone app. Walk to the key points of the yard boundary, and simply press a button on the phone.
+
+The same technique should be valid to identify areas of the yard where the lawnmower is not allowed.  A map of the yard should be available on the smartphone app to tweak the coordinates.
+
+
+### Obstruction Identification ###
+
+The lawnmower should be able to automatically identify and record objects such as trees, shrubbery, swing-sets, yard art, etc. Other objects that are transitional should also be identified, these include: toys, pets, people, and other significant objects.
+
+### Terrain Recognition ###
+
+Many robotic mowers must have very flat ground on which to operate.  Our cutter units should be able to discover the terrain of the yard and whenever possible, negotiate valid paths to cut all possible areas.
+
+As an interesting twist, it might be desirable to have the phone app identify on a map of the yard those areas where the cutters were not able to complete. This would quickly identify where manual help would be required.
+
+### Cutting Patterns ###
+
+The customer should be able to specify a set of one or more patterns to use in cutting the yard.
+
+Since it may be possible that the cutter may take more than a single day to cut a yard, the current cutting pattern should be able to be resumed.
+
+It might be possible to allow very specialized patterns that can essentially create yard-art.
+
+
+### Automatic Recharging ###
+
+Like many of the existing robotic lawnmowers, the cutter units must recognize when their batteries are getting low so they can return to the charging station.
+
+As a different possibility, the cutter units might be scalable to have onboard gas generators so we can handle much larger areas.
+
+### Commercial Scalability ###
+
+All of the data for a yard should be saved and loadable on demand.  The `base-station` should be designed so it can be either permanently mounted or positioned accurately over a monument.  These two features in addition to possible *swarming* and the optional *onboard gas generators* and larger mowing decks would allow commercial yard maintenance companies to use the cutter system to maintain numerous different yards.
+
+After the initial setup (and the positioning of a monument), a company should be able to come to the client's yard, position the `base-station` over the yard *monument*, load the client's yard data, select the cutting pattern and then start the `cutter` units.  While the `cutter`s are busy cutting the yard maintenance employees could do things like edging, trimming areas that are already known as beyond the capabilities of the `cutter`s.
+
+## XXX Requirements ##
+
 *	Accurate positioning within yard
-*	Go / No-Go zones
-*	Obstruction identification and avoidance
-  * Learning permanent obstructions
-*	Controllable cutting patterns
-  * Continue with a single cutting pattern until it has been completed
-  * This implies that we must track progress throughout the cutting
 * Steep hill recognition and negotiation
-* Automatic Recharging
-  * Return to the charging station and automatically plugin
 
 ## Wishes ##
 
@@ -40,7 +90,7 @@ There are several different makes of Robotic Lawnmowers on the market today.  Th
 
 ## Assumptions ##
 
-* Rasberry PI based computing platform
+* Raspberry PI based computing platform
   * Utilize built-in sensors/services
     * GPS
     * Orientation
@@ -67,16 +117,6 @@ By using this simple and "local" DGPS we can identify the boundaries, in additio
 There are two segments to the Obstruction problem; first is identifying an obstruction, second is recognize when an obstruction is permanent and needs to be learned.
 
 Simple detection may involve multiple techniques.
-
-## Cutting Patterns ##
-
-To provide variety we should support user defined cutting patterns. It should even be possible to provide yard pictures and messages.
-
-The current pattern progress will always be maintained so we can resume cutting.
-
-## Recharging ##
-
-Do we want to use induction charging?
 
 ## Quiet cutter ##
 

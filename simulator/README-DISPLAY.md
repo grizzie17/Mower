@@ -1,14 +1,13 @@
 # Display #
 
+The `Display` subsystem is only used by the simulator.  Its purpose is to render a representation of a logical yard, obstacles, and the position of the `Mower` units.
+
 This subsystem will use OpenGL for its rendering engine. This will most likely run in its own thread.
 
 The `Display` subsystem will need to have access to two sets of data.  The `Environment` will serve up a mesh that represents the ground and information about the obstacles.  The `Base-Station` will need to serve up information about the derived terrain, obstacles, boundaries, mowers and their progress.
 
 
 Active sensors may be added to the display to provide visual feedback of what the `mower`s are 'seeing'.
-
-
-The `Display` subsystem will run in its own thread/process.
 
 I guess there will need to be a couple of different components for `Display`. One that manages the rendering component(s) and the rendering component(s) themselves.
 
