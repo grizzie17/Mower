@@ -1,3 +1,0 @@
-/c/Users/johng/LocalDocuments/Development/Mower/build/CMakeFiles/rebuild_cache.dir
-/c/Users/johng/LocalDocuments/Development/Mower/build/CMakeFiles/Mower.dir
-/c/Users/johng/LocalDocuments/Development/Mower/build/CMakeFiles/edit_cache.dir

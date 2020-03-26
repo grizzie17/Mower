@@ -1,1 +1,0 @@
-/mingw64/bin/x86_64-w64-mingw32-g++.exe  -g -ggdb -O0  -g -ggdb -L/mingw64/x86_64-w64-mingw32/lib CMakeFiles/Mower.dir/main.cpp.obj  -o Mower 
