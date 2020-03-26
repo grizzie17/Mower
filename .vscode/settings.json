@@ -5,6 +5,10 @@
 	"cSpell.words": [
 		"DGPS",
 		"HGLRC",
+		"Wwindow",
+		"XMAX",
+		"YMAX",
+		"glfw",
 		"powerup",
 		"ppfd"
 	]

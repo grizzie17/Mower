@@ -10,6 +10,8 @@ mkdir -p $THISDIR/build
 
 pushd $THISDIR/build &>/dev/null
 
+export CMAKE_LIBRARY_PATH=/mingw64/x86_64-w64-mingw32/lib
+
 cmake ..
 sts=$?
 if [ $sts ]; then

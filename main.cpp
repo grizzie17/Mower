@@ -1,7 +1,11 @@
 
+#include "Simulator.hpp"
+
+using namespace Yogi::Simulator;
 
 int
 main( int argc, char** argv )
 {
-	return 0;
+	Simulator tSim;
+	return tSim.main( argc, argv );
 }

@@ -11,12 +11,22 @@ set(CMAKE_CXX_STANDARD 17)
 # add_subdirectory( utilities )
 # add_subdirectory( display )
 
-set(SOURCE main.cpp)
+include_directories( simulator )
+
+set(SOURCE
+		main.cpp
+		simulator/Simulator.cpp
+		simulator/Environment.cpp
+		simulator/Draw.cpp)
 
 
 add_executable(${PROJECT_NAME} ${SOURCE})
 
-#target_link_libraries(Mower PRIVATE display)
+target_link_libraries(${PROJECT_NAME}
+		opengl32
+		freeglut
+		Glu32
+		gdi32)
 
 # set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 # set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

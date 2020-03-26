@@ -1,7 +1,7 @@
 
 #include "Draw.hpp"
 
-#include <GL/gl.h>
+#include <GL/glut.h>
 
 namespace Yogi { namespace Simulator {
 
@@ -20,7 +20,14 @@ OpenGLDraw::~OpenGLDraw()
 
 errno_t
 OpenGLDraw::initialize()
-{}
+{
+	glClearColor( 0.0f, 0.0f, 0.0f, 1.0f );
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT );
+	glMatrixMode( GL_PROJECTION );
+	glLoadIdentity();
+
+	return 0;
+}
 
 bool
 OpenGLDraw::setHDC( HDC hDC, HWND hWindow )
@@ -49,19 +56,22 @@ OpenGLDraw::setHDC( HDC hDC, HWND hWindow )
 		SetPixelFormat( m_hDC, pixelformat, ppfd );
 	if ( ! m_hRC )
 		m_hRC = wglCreateContext( m_hDC );
+	wglMakeCurrent( m_hDC, m_hRC );
+	return true;
 }
 
 bool
 OpenGLDraw::beginDraw()
 {
-	glClear( GL_COLOR_BUFFER_BIT );
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	return true;
 }
 
 bool
 OpenGLDraw::endDraw()
 {
-	glFlush();
+	// glFlush();
+	glutSwapBuffers();
 	return true;
 }
 
@@ -97,6 +107,23 @@ void
 OpenGLDraw::endTriangleStrip()
 {
 	glEnd();
+}
+
+void
+OpenGLDraw::beginQuadStrip()
+{
+	glBegin( GL_QUAD_STRIP );
+}
+void
+OpenGLDraw::endQuadStrip()
+{
+	glEnd();
+}
+
+void
+OpenGLDraw::setFillColors( double r, double g, double b )
+{
+	glColor4f( ( GLfloat )( r / 255.0 ), ( GLfloat )( g / 255.0 ), ( GLfloat )( b / 255.0 ), (GLfloat)1.0f );
 }
 
 }} // namespace Yogi::Simulator

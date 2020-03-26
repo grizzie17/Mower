@@ -2,7 +2,7 @@
 #ifndef _HPP_VDraw_
 #define _HPP_VDraw_
 
-#include "Interface.hpp"
+//#include "Interface.hpp"
 
 namespace Yogi { namespace Simulator {
 
@@ -30,7 +30,7 @@ struct VDraw
 	polypoint( double x, //!< [in] x
 		double y,        //!< [in] y
 		double z         //!< [in] z
-		) PURE;
+		) = 0;
 
 	//! begin/end polygon
 	//!
@@ -40,14 +40,22 @@ struct VDraw
 	//!		polypoint( ... );
 	//!		endPolygon();
 	virtual void
-	beginPolygon() PURE;
+	beginPolygon() = 0;
 	virtual void
-	endPolygon() PURE;
+	endPolygon() = 0;
 
 	virtual void
-	beginTriangleStrip() PURE;
+	beginTriangleStrip() = 0;
 	virtual void
-	endTriangleStrip() PURE;
+	endTriangleStrip() = 0;
+
+	virtual void
+	beginQuadStrip() = 0;
+	virtual void
+	endQuadStrip() = 0;
+
+	virtual void
+	setFillColors( double r, double g, double b ) = 0;
 };
 
 }} // namespace Yogi::Simulator

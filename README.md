@@ -1,10 +1,12 @@
 # Automatic / Robotic Lawnmower(s) #
 
-Project name: `Cutter`
-
 In general, a robotic lawnmower will cut/maintain the bulk of a lawn without human intervention.
 
 There are several different makes of Robotic Lawnmowers on the market today.  They all share the feature of "maintaining" a yard instead of "cutting" a yard.  The "maintaining" is a great idea given the mower trims a little of the yard every day.  The problem with this approach is that the mowers can rarely handle large areas (many of the brands limit the area to 1/4 to 1/2 acre). Many of these brands require the customer to bury wires that identify the limits of the yard, and around obstacles (such as gardens, driveways, etc.).
+
+## Project `Cutter` ##
+
+Our goal is to make an automatic lawn cutting system that is scalable from relatively small and flat yards to large areas that need to be mowed (such as estates, golf courses, etc) and everything in between.
 
 ## Requirements ##
 
@@ -12,13 +14,13 @@ There are several different makes of Robotic Lawnmowers on the market today.  Th
 
 Setup must be very simple.
 
-Essentially we want the setup to be a very short two step process. First is positioning a `base-station` in the yard. Second is identifying the boundaries of the yard.
+Essentially we want the setup to be a very short two step process. First is positioning a reference antenna in the yard. Second is identifying the boundaries of the yard.  That should really be it for first setup.
 
-#### Base Station ####
+#### Yard-Anchor ####
 
-The customer should identify the position of a `base-station` that anchors the cutting system to the yard. The `base-station` should be in a consistent position for every time the lawnmower(s) cut the yard.
+The afore mentioned *reference antenna* is known as the `yard-anchor` in the `Cutter` project.  As the name implies, the `yard-anchor` provides a logical origin (or anchor) for the `cutter`.  This station MUST be placed in a consistent position every time the `mowers` are used to cut the yard.
 
-The `base-station` should be allowed to be either permanently mounted or positioned over a yard monument.
+The `yard-anchor` should be allowed to be either permanently mounted or positioned over a yard monument.
 
 The next step is to identify the limits of cutting.
 
@@ -27,7 +29,7 @@ The next step is to identify the limits of cutting.
 
 We do NOT want to use any form of buried wires to identify the valid cutting area for a yard.
 
-The customer should be able to turn on the `base-station` and then use a smartphone app. Walk to the key points of the yard boundary, and simply press a button on the phone.
+The customer should be able to turn on the `yard-anchor` and then use a smartphone app. Walk to the key points of the yard boundary, and simply press a button on the phone.
 
 The same technique should be valid to identify areas of the yard where the lawnmower is not allowed.  A map of the yard should be available on the smartphone app to tweak the coordinates.
 
@@ -59,9 +61,9 @@ As a different possibility, the cutter units might be scalable to have onboard g
 
 ### Commercial Scalability ###
 
-All of the data for a yard should be saved and loadable on demand.  The `base-station` should be designed so it can be either permanently mounted or positioned accurately over a monument.  These two features in addition to possible *swarming* and the optional *onboard gas generators* and larger mowing decks would allow commercial yard maintenance companies to use the cutter system to maintain numerous different yards.
+All of the data for a yard should be saved and loadable on demand.  The `yard-anchor` should be designed so it can be either permanently mounted or positioned accurately over a monument.  These two features in addition to possible *swarming* and the optional *onboard gas generators* and larger mowing decks would allow commercial yard maintenance companies to use the cutter system to maintain numerous different yards.
 
-After the initial setup (and the positioning of a monument), a company should be able to come to the client's yard, position the `base-station` over the yard *monument*, load the client's yard data, select the cutting pattern and then start the `cutter` units.  While the `cutter`s are busy cutting the yard maintenance employees could do things like edging, trimming areas that are already known as beyond the capabilities of the `cutter`s.
+After the initial setup (and the positioning of a monument), a company should be able to come to the client's yard, position the `yard-anchor` over the yard *monument*, load the client's yard data, select the cutting pattern and then start the `cutter` units.  While the `cutter`s are busy cutting the yard maintenance employees could do things like edging, trimming areas that are already known as beyond the capabilities of the `cutter`s.
 
 ## XXX Requirements ##
 

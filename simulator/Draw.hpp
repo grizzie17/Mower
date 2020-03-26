@@ -7,11 +7,10 @@
 #ifndef _HPP_Draw_
 #define _HPP_Draw_
 
-#include <GL/gl.h>
+#include "VDraw.hpp"
+
 #include <GL/glu.h>
 #include <errno.h>
-
-#include "VDraw.hpp"
 
 namespace Yogi { namespace Simulator {
 
@@ -55,6 +54,14 @@ public: // VDraw
 	beginTriangleStrip();
 	virtual void
 	endTriangleStrip();
+
+	virtual void
+	beginQuadStrip();
+	virtual void
+	endQuadStrip();
+
+	virtual void
+	setFillColors( double r, double g, double b );
 
 protected:
 	HDC m_hDC;   //!< MS-Windows DC
