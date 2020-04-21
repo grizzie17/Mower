@@ -14,7 +14,7 @@ set(CMAKE_CXX_STANDARD 17)
 include_directories( simulator )
 
 set(SOURCE
-		main.cpp
+		simulator/WinMain.cpp
 		simulator/Simulator.cpp
 		simulator/Environment.cpp
 		simulator/Draw.cpp)
@@ -26,6 +26,7 @@ target_link_libraries(${PROJECT_NAME}
 		opengl32
 		freeglut
 		Glu32
+		glew32
 		gdi32)
 
 # set(CPACK_PROJECT_NAME ${PROJECT_NAME})

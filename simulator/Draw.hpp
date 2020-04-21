@@ -17,16 +17,19 @@ namespace Yogi { namespace Simulator {
 class OpenGLDraw : public VDraw
 {
 public:
-	OpenGLDraw();
+	// class lifecycle  -------------------------
+	OpenGLDraw( HINSTANCE hInstance );
 	virtual ~OpenGLDraw();
 
 public:
-	errno_t
-	initialize();
+	// public types  ----------------------------
 
-	//! bind DC and Window to draw object
+	// public functions  ------------------------
+
+	// create and initialize window
 	bool
-	setHDC( HDC hDC, HWND hWindow );
+	initialize( HWND hWnd, HDC hDC );
+
 
 	//!	start drawing to window
 	bool
@@ -36,19 +39,51 @@ public:
 	bool
 	endDraw();
 
-public: // VDraw
+	void
+	update( int ox, int nx, int oy, int ny );
+
+	bool
+	size( int cx, int cy );
+
+	bool
+	setWindowTitle( const char* sNewTitle );
+
+protected:
+	// protected types  -------------------------
+
+	// protected functions  ---------------------
+
+	// protected data  --------------------------
+
+	HINSTANCE   m_hInstance;
+	HDC         m_hDC;     //!< MS-Windows DC
+	HWND        m_hWnd;    //!< MS-Windows Window Handle
+	HGLRC       m_hRC;     //!< OpenGL Resource Context
+	PAINTSTRUCT m_tPaint;
+
+
+public:
+	// VDraw Interface --------------------------
+
 	//! add point/vertex to draw buffer
 	//! must be bracketed by beginPolygon or similar
 	virtual void
-	polypoint( double x, //!< [in] x
-		double y,        //!< [in] y
-		double z         //!< [in] z
+	polypoint(                //! void
+			double x,         //!< [in] x
+			double y,         //!< [in] y
+			double z = 0.0    //!< [in] z
 	);
+
 
 	virtual void
 	beginPolygon();
 	virtual void
 	endPolygon();
+
+	virtual void
+	beginTriangles();
+	virtual void
+	endTriangles();
 
 	virtual void
 	beginTriangleStrip();
@@ -61,16 +96,9 @@ public: // VDraw
 	endQuadStrip();
 
 	virtual void
-	setFillColors( double r, double g, double b );
-
-protected:
-	HDC m_hDC;   //!< MS-Windows DC
-	HWND m_hWND; //!< MS-Windows Window Handle
-	HGLRC m_hRC; //!< OpenGL Resource Context
-
-private:
+	setColor( double r, double g, double b );
 };
 
-}} // namespace Yogi::Simulator
+}}    // namespace Yogi::Simulator
 
-#endif // _HPP_Draw_
+#endif    // _HPP_Draw_

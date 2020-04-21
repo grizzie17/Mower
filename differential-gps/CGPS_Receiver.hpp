@@ -10,14 +10,13 @@
 class CGPS_Receiver
 {
 public:
-			CGPS_Receiver();
+	CGPS_Receiver();
 	virtual ~CGPS_Receiver();
+
 public:
 protected:
 private:
 };
 
 
-
-
-#endif // _HPP_CGPS_Receiver_
+#endif    // _HPP_CGPS_Receiver_

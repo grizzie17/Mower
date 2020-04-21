@@ -20,13 +20,13 @@ public:
 
 protected:
 	VDraw::Point m_tOrigin;
-	double m_dRowSpacing;
-	double m_dColSpacing;
-	int m_nRows;
-	int m_nCols;
-	double m_aDTM[5][5];
+	double       m_dRowSpacing;
+	double       m_dColSpacing;
+	int          m_nRows;
+	int          m_nCols;
+	double       m_aDTM[5][5];
 };
 
-}} // namespace Yogi::Simulator
+}}    // namespace Yogi::Simulator
 
-#endif // _HPP_ENVIRONMENT_
+#endif    // _HPP_ENVIRONMENT_

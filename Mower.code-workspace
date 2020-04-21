@@ -8,23 +8,21 @@
 	"extensions": {
 		"recommendations": [
 			"ms-vscode.cpptools",
-			"maelvalais.autoconf",
 			"github.vscode-pull-request-github"
 		]
 	},
 	"settings": {
-		"editor.formatOnType": true,
 		"editor.formatOnSave": true,
-		"[cpp]": {
-			"editor.defaultFormatter": "ms-vscode.cpptools",
-		},
+		"editor.formatOnType": true,
+		"editor.formatOnPaste": true,
+		"editor.defaultFormatter": "ms-vscode.cpptools",
 		"workbench.colorCustomizations": {
 			// "titleBar.activeBackground": "#523232",
 			// "titleBar.inactiveBackground": "#413030",
 			"activityBar.background": "#233f1f"
 		},
 		//========= CMAKE ==========//
-		"cmake.cmakePath": "C:/msys64/mingw64/bin/cmake.exe",
+		// "cmake.cmakePath": "C:/msys64/mingw64/bin/cmake.exe",
 		// "cmake.buildTask": true,
 		// "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
 		// "cmake.mingwSearchDirs": [
@@ -59,6 +57,7 @@
 			"CHERE_INVOKING": "1"
 		},
 		"C_Cpp.clang_format_path": "C:/Program Files/LLVM/bin/clang-format.exe",
+		"C_Cpp.clang_format_style": "file",
 		//"C_Cpp.formatting": "Disabled",
 		//"uncrustify.configPath.windows": "uncrustify.cfg",
 		"github.repositories": [
@@ -79,6 +78,12 @@
 			"cpp",
 			"markdown"
 		],
-		"cSpell.enabled": true
+		"cSpell.enabled": true,
+		"files.associations": {
+			".clang-format": "yaml",
+			"doxyfile": "yaml",
+			"cstring": "cpp",
+			"ostream": "cpp"
+		}
 	}
 }
