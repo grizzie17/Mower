@@ -1,7 +1,7 @@
 /.git
 .clang
 .build*
-#build/
+build/
 build.log
 usrlocal/
 Backup

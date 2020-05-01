@@ -32,14 +32,18 @@
                 "_DEBUG",
                 "DEVROOT=${workspaceFolder}",
                 "OPENGL",
-                "GLUT"
+                "GLUT",
+                "SIMULATOR"
             ],
             "includePath": [
                 ".",
                 "${workspaceFolder}",
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/**/**",
-                "${workspaceFolder}/**/**/**"
+                "${workspaceFolder}/**/**/**",
+                "${workspaceFolder}/**/**/**/**",
+                "${workspaceFolder}/**/**/**/**/**",
+                "${workspaceFolder}/googletest/googletest/include"
             ]
         },
         {

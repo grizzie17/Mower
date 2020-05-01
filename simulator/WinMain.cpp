@@ -17,15 +17,13 @@ static Simulator* g_pApplication = NULL;
 
 
 int APIENTRY
-WinMain(
-		HINSTANCE hInstCurr, HINSTANCE hInstPrev, LPSTR sCmdLine, int nCmdShow )
+WinMain( HINSTANCE hInstCurr, HINSTANCE hInstPrev, LPSTR sCmdLine, int nCmdShow )
 {
 	int result = 0;
 
 	try
 	{
-		g_pApplication
-				= new Simulator( hInstCurr, hInstPrev, sCmdLine, nCmdShow );
+		g_pApplication = new Simulator( hInstCurr, hInstPrev, sCmdLine, nCmdShow );
 		if ( ! g_pApplication )
 			return 1;
 

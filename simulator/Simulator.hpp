@@ -23,8 +23,7 @@ class Simulator
 {
 	// class lifecycle  -------------------------
 public:
-	Simulator( HINSTANCE hInstCurr, HINSTANCE hInstPrev, LPCSTR sCmdLine,
-			int nCmdShow );
+	Simulator( HINSTANCE hInstCurr, HINSTANCE hInstPrev, LPCSTR sCmdLine, int nCmdShow );
 	virtual ~Simulator();
 
 public:
@@ -63,12 +62,11 @@ protected:
 
 
 	HWND
-	windowCreate( LPCSTR sTitle, int x, int y, int width, int height, int type,
-			int flags );
+	windowCreate( LPCSTR sTitle, int x, int y, int width, int height, int type, int flags );
 
 	HWND
-	createOpenGLWindow( const char* sTitle, int x, int y, int nWidth,
-			int nHeight, BYTE type, DWORD flags );
+	createOpenGLWindow(
+			const char* sTitle, int x, int y, int nWidth, int nHeight, BYTE type, DWORD flags );
 
 	// protected data  --------------------------
 

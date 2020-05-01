@@ -25,8 +25,7 @@ namespace Yogi { namespace Simulator {
 //===============================================
 // Class Lifecycle
 //===============================================
-Simulator::Simulator( HINSTANCE hInstCurr, HINSTANCE hInstPrev, LPCSTR sCmdLine,
-		int nCmdShow )
+Simulator::Simulator( HINSTANCE hInstCurr, HINSTANCE hInstPrev, LPCSTR sCmdLine, int nCmdShow )
 		: m_hInstance( hInstCurr )
 		, m_hDC( 0 )
 		, m_hWnd( 0 )
@@ -56,8 +55,7 @@ Simulator::setup( LPCSTR sAppName )
 
 	m_sTitle = sAppName;
 
-	HWND hWnd = windowCreate(
-			m_sTitle.c_str(), 0, 0, 600, 600 * 3 / 4, PFD_TYPE_RGBA, 0 );
+	HWND hWnd = windowCreate( m_sTitle.c_str(), 0, 0, 600, 600 * 3 / 4, PFD_TYPE_RGBA, 0 );
 	if ( hWnd )
 	{
 		m_hWnd = hWnd;
@@ -127,8 +125,8 @@ Simulator::WndProcGlue( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
 		// this message is sent when a new window has just been
 		// created. We associate its handle with its Simulator
 		// instance.
-		::SetWindowLongPtr( hWnd, GWLP_USERDATA,
-				( LONG_PTR )( LPCREATESTRUCT( lParam ) )->lpCreateParams );
+		::SetWindowLongPtr(
+				hWnd, GWLP_USERDATA, ( LONG_PTR )( LPCREATESTRUCT( lParam ) )->lpCreateParams );
 		break;
 	default:
 		break;
@@ -219,8 +217,8 @@ Simulator::WndProc( HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam )
 // create window that will be passed to
 // draw objects.
 HWND
-Simulator::windowCreate( LPCSTR sTitle, int x, int y, int width, int height,
-		int type, int flags )
+Simulator::windowCreate(
+		LPCSTR sTitle, int x, int y, int width, int height, int type, int flags )
 {
 	HWND hWnd = 0;
 
@@ -235,8 +233,8 @@ Simulator::windowCreate( LPCSTR sTitle, int x, int y, int width, int height,
 		wc.hCursor = LoadCursor( NULL, IDC_ARROW );
 		wc.lpszClassName = "OpenGL";
 
-		DWORD dwStyle = WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN
-				| WS_MINIMIZEBOX;
+		DWORD dwStyle
+				= WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN | WS_MINIMIZEBOX;
 
 		if ( RegisterClass( &wc ) )
 		{
@@ -246,8 +244,8 @@ Simulator::windowCreate( LPCSTR sTitle, int x, int y, int width, int height,
 			height = r.bottom - r.top;
 			x = GetSystemMetrics( SM_CXSCREEN ) / 2 - width / 2;
 			y = GetSystemMetrics( SM_CYSCREEN ) / 2 - height / 2;
-			hWnd = CreateWindowA( "OpenGL", sTitle, dwStyle, x, y, width,
-					height, NULL, NULL, m_hInstance, this );
+			hWnd = CreateWindowA( "OpenGL", sTitle, dwStyle, x, y, width, height, NULL, NULL,
+					m_hInstance, this );
 			if ( hWnd )
 			{
 				m_hWnd = hWnd;
@@ -259,8 +257,8 @@ Simulator::windowCreate( LPCSTR sTitle, int x, int y, int width, int height,
 
 					pfd.nSize = sizeof( pfd );
 					pfd.nVersion = 1;
-					pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL
-							| PFD_DOUBLEBUFFER | flags;
+					pfd.dwFlags = PFD_DRAW_TO_WINDOW | PFD_SUPPORT_OPENGL | PFD_DOUBLEBUFFER
+							| flags;
 					pfd.iPixelType = type;
 					pfd.cColorBits = 32;
 					pfd.cDepthBits = 24;
@@ -281,8 +279,8 @@ Simulator::windowCreate( LPCSTR sTitle, int x, int y, int width, int height,
 }
 
 HWND
-Simulator::createOpenGLWindow( LPCSTR sTitle, int x, int y, int nWidth,
-		int nHeight, BYTE type, DWORD flags )
+Simulator::createOpenGLWindow(
+		LPCSTR sTitle, int x, int y, int nWidth, int nHeight, BYTE type, DWORD flags )
 {
 	HWND     hWnd = 0;
 	WNDCLASS wc = { 0 };
@@ -305,8 +303,8 @@ Simulator::createOpenGLWindow( LPCSTR sTitle, int x, int y, int nWidth,
 			return 0;
 
 		hWnd = ::CreateWindow( "OpenGL", m_sTitle.c_str(),
-				WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN, x, y,
-				nWidth, nHeight, NULL, NULL, m_hInstance, NULL );
+				WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN, x, y, nWidth, nHeight,
+				NULL, NULL, m_hInstance, NULL );
 		if ( ! hWnd )
 			return 0;
 

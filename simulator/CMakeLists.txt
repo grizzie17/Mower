@@ -1,9 +1,18 @@
 
-add_library(
-	display
-	Draw.cpp
-	Draw.hpp
-	VDraw.hpp
-)
+set(BINARY ${CMAKE_PROJECT_NAME})
 
-target_include_directories(display PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+set( SOURCES
+		WinMain.cpp
+		Simulator.cpp
+		Environment.cpp
+		Draw.cpp
+		)
+
+add_executable(${BINARY} ${SOURCES})
+target_link_libraries(${PROJECT_NAME}
+		Yogi_graphics_lib
+		opengl32
+		freeglut
+		Glu32
+		glew32
+		gdi32)

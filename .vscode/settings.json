@@ -3,6 +3,7 @@
 		"markdown"
 	],
 	"cSpell.words": [
+		"CUNITVECTOR",
 		"CXSCREEN",
 		"CYSCREEN",
 		"DGPS",
@@ -33,6 +34,7 @@
 		"RBUTTONDOWN",
 		"RBUTTONUP",
 		"Rotatef",
+		"STREQ",
 		"Translatef",
 		"Unrealize",
 		"VREDRAW",
@@ -40,10 +42,12 @@
 		"XMAX",
 		"YMAX",
 		"cgps",
+		"ebase",
 		"glfw",
 		"lpfn",
 		"powerup",
 		"ppfd",
+		"println",
 		"receiver"
 	]
 }

@@ -83,7 +83,10 @@
 			".clang-format": "yaml",
 			"doxyfile": "yaml",
 			"cstring": "cpp",
-			"ostream": "cpp"
-		}
+			"ostream": "cpp",
+			"cmath": "cpp",
+			"climits": "cpp"
+		},
+		"cmake.cmakePath": "C:/msys64/usr/bin/cmake.exe"
 	}
 }

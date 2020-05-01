@@ -6,7 +6,7 @@ BasedOnStyle: WebKit
 IndentWidth: 4
 TabWidth: 4
 UseTab: ForContinuationAndIndentation
-ColumnLimit: 80
+ColumnLimit: 96
 
 AlignConsecutiveDeclarations: true
 AlignConsecutiveMacros: true
