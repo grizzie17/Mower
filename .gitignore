@@ -28,6 +28,7 @@ ipch
 *.opensdf
 m4/
 ftp-sync.json
+*save
 
 
 # Created by https://www.gitignore.io/api/c++

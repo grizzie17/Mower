@@ -9,3 +9,5 @@ set( SOURCES
 
 add_library(${BINARY} STATIC
 		${SOURCES})
+
+add_subdirectory(test)

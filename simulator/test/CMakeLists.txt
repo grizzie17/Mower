@@ -1,4 +1,4 @@
-set(BINARY Yogi_graphics_test)
+set(BINARY simulator_test)
 
 file(GLOB TEST_SOURCES LIST_DIRECTORIES false *.cpp)
 list(REMOVE_ITEM TEST_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp)
@@ -10,13 +10,13 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0")
 foreach(file ${TEST_SOURCES})
 	set(name)
 	get_filename_component(name ${file} NAME_WE)
-	set(tname "yogi_graphics_${name}")
+	set(tname "simulator_${name}")
 	add_executable("${tname}"
 			${file}
 			main.cpp
 			)
-	add_dependencies("${tname}" Yogi_graphics_lib)
-	target_link_libraries("${tname}" Yogi_graphics_lib Yogi_utilities_lib gtest opengl32 Glu32)
+	#add_dependencies("${tname}" Yogi_graphics_lib)
+	target_link_libraries("${tname}" gtest)
 	add_test(NAME ${name} COMMAND "${tname}")
 	# add_custom_command(
 	# 		TARGET ${tname}
@@ -26,6 +26,10 @@ foreach(file ${TEST_SOURCES})
 	# 		COMMAND ${CMAKE_CTEST_COMMAND}  -R "^${tname}$" --output-on-failures
 	# )
 endforeach()
+
+configure_file(
+	"../environment.json" "environment.json" COPYONLY
+)
 
 
 

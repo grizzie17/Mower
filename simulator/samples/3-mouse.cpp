@@ -184,10 +184,10 @@ WindowProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 			mx = LOWORD( lParam );
 			my = HIWORD( lParam );
 			/* Win32 is pretty braindead about the x, y position that
-	       it returns when the mouse is off the left or top edge
-	       of the window (due to them being unsigned). therefore,
-	       roll the Win32's 0..2^16 pointer co-ord range to the
-	       more amenable (and useful) 0..+/-2^15. */
+			it returns when the mouse is off the left or top edge
+			of the window (due to them being unsigned). therefore,
+			roll the Win32's 0..2^16 pointer co-ord range to the
+	        more amenable (and useful) 0..+/-2^15. */
 			if ( mx & 1 << 15 )
 				mx -= ( 1 << 16 );
 			if ( my & 1 << 15 )
@@ -221,8 +221,7 @@ WindowProc( HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam )
 }
 
 HWND
-CreateOpenGLWindow( char* title, int x, int y, int width, int height, BYTE type,
-		DWORD flags )
+CreateOpenGLWindow( char* title, int x, int y, int width, int height, BYTE type, DWORD flags )
 {
 	int                   n, pf;
 	HWND                  hWnd;
@@ -257,13 +256,12 @@ CreateOpenGLWindow( char* title, int x, int y, int width, int height, BYTE type,
 	}
 
 	hWnd = CreateWindow( "OpenGL", title,
-			WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN, x, y,
-			width, height, NULL, NULL, hInstance, NULL );
+			WS_OVERLAPPEDWINDOW | WS_CLIPSIBLINGS | WS_CLIPCHILDREN, x, y, width, height, NULL,
+			NULL, hInstance, NULL );
 
 	if ( hWnd == NULL )
 	{
-		MessageBox( NULL, "CreateWindow() failed:  Cannot create a window.",
-				"Error", MB_OK );
+		MessageBox( NULL, "CreateWindow() failed:  Cannot create a window.", "Error", MB_OK );
 		return NULL;
 	}
 
@@ -300,15 +298,13 @@ CreateOpenGLWindow( char* title, int x, int y, int width, int height, BYTE type,
 
 	DescribePixelFormat( hDC, pf, sizeof( PIXELFORMATDESCRIPTOR ), &pfd );
 
-	if ( pfd.dwFlags & PFD_NEED_PALETTE
-			|| pfd.iPixelType == PFD_TYPE_COLORINDEX )
+	if ( pfd.dwFlags & PFD_NEED_PALETTE || pfd.iPixelType == PFD_TYPE_COLORINDEX )
 	{
 		n = 1 << pfd.cColorBits;
 		if ( n > 256 )
 			n = 256;
 
-		lpPal = (LOGPALETTE*)malloc(
-				sizeof( LOGPALETTE ) + sizeof( PALETTEENTRY ) * n );
+		lpPal = (LOGPALETTE*)malloc( sizeof( LOGPALETTE ) + sizeof( PALETTEENTRY ) * n );
 		memset( lpPal, 0, sizeof( LOGPALETTE ) + sizeof( PALETTEENTRY ) * n );
 		lpPal->palVersion = 0x300;
 		lpPal->palNumEntries = n;
@@ -328,14 +324,11 @@ CreateOpenGLWindow( char* title, int x, int y, int width, int height, BYTE type,
 			for ( i = 0; i < n; ++i )
 			{
 				lpPal->palPalEntry[i].peRed
-						= ( ( ( i >> pfd.cRedShift ) & redMask ) * 255 )
-						/ redMask;
+						= ( ( ( i >> pfd.cRedShift ) & redMask ) * 255 ) / redMask;
 				lpPal->palPalEntry[i].peGreen
-						= ( ( ( i >> pfd.cGreenShift ) & greenMask ) * 255 )
-						/ greenMask;
+						= ( ( ( i >> pfd.cGreenShift ) & greenMask ) * 255 ) / greenMask;
 				lpPal->palPalEntry[i].peBlue
-						= ( ( ( i >> pfd.cBlueShift ) & blueMask ) * 255 )
-						/ blueMask;
+						= ( ( ( i >> pfd.cBlueShift ) & blueMask ) * 255 ) / blueMask;
 				lpPal->palPalEntry[i].peFlags = 0;
 			}
 		}
@@ -375,8 +368,7 @@ CreateOpenGLWindow( char* title, int x, int y, int width, int height, BYTE type,
 }
 
 int APIENTRY
-WinMain( HINSTANCE hCurrentInst, HINSTANCE hPreviousInst, LPSTR lpszCmdLine,
-		int nCmdShow )
+WinMain( HINSTANCE hCurrentInst, HINSTANCE hPreviousInst, LPSTR lpszCmdLine, int nCmdShow )
 {
 	HGLRC hRC;                       /* opengl context */
 	HWND  hWnd;                      /* window */

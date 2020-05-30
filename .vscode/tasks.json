@@ -8,59 +8,41 @@
 		}
 	},
 	"tasks": [
-		{
-			"label": "pwd",
-			"type": "shell",
-			"command": "pwd",
-			"problemMatcher": []
-		},
-		{
-			"label": "c++ predefined variables",
-			"type": "shell",
-			"command": "./build-variables.sh",
-			"problemMatcher": []
-		},
-		{
-			"label": "c++ predefined include paths",
-			"type": "shell",
-			"command": "./build-includes.sh",
-			"problemMatcher": []
-		},
-		{
-			"label": "build-config",
-			"type": "shell",
-			"command": "./build-config.sh",
-			"group": "build",
-			"problemMatcher": {
-				"pattern": {
-					"regexp": "^([^:]+):\\s+([^:]+):\\s+(.*)$",
-					"file": 1,
-					"severity": 2,
-					"message": 3
-				}
-			},
-			"presentation": {
-				"clear": true
-			}
-		},
-		{
-			"label": "build-config  --clean",
-			"type": "shell",
-			"command": "./build-config.sh --clean",
-			"group": "build",
-			"problemMatcher": {
-				"pattern": {
-					"regexp": "^([^:]+):\\s+([^:]+):\\s+([^:]+):\\s+(.*)$",
-					"file": 1,
-					"line": 2,
-					"severity": 3,
-					"message": 4
-				}
-			},
-			"presentation": {
-				"clear": true
-			}
-		},
+		// {
+		// 	"label": "build-config",
+		// 	"type": "shell",
+		// 	"command": "./build-config.sh",
+		// 	"group": "build",
+		// 	"problemMatcher": {
+		// 		"pattern": {
+		// 			"regexp": "^([^:]+):\\s+([^:]+):\\s+(.*)$",
+		// 			"file": 1,
+		// 			"severity": 2,
+		// 			"message": 3
+		// 		}
+		// 	},
+		// 	"presentation": {
+		// 		"clear": true
+		// 	}
+		// },
+		// {
+		// 	"label": "build-config  --clean",
+		// 	"type": "shell",
+		// 	"command": "./build-config.sh --clean",
+		// 	"group": "build",
+		// 	"problemMatcher": {
+		// 		"pattern": {
+		// 			"regexp": "^([^:]+):\\s+([^:]+):\\s+([^:]+):\\s+(.*)$",
+		// 			"file": 1,
+		// 			"line": 2,
+		// 			"severity": 3,
+		// 			"message": 4
+		// 		}
+		// 	},
+		// 	"presentation": {
+		// 		"clear": true
+		// 	}
+		// },
 		{
 			"label": "build-clean",
 			"type": "shell",
@@ -75,8 +57,35 @@
 			"label": "cmake build all",
 			"type": "shell",
 			"command": "./build-cmake.sh",
+			"args": [
+				"-DCMAKE_BUILD_TYPE=DEBUG"
+			],
 			"options": {
 				"cwd": "${workspaceFolder}"
+			},
+			"group": "build",
+			"problemMatcher": [
+				{
+					"pattern": {
+						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5
+					}
+				}
+			]
+		},
+		{
+			"label": "make Mower",
+			"type": "shell",
+			"command": "make",
+			"args": [
+				"Mower"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/build"
 			},
 			"group": {
 				"kind": "build",
@@ -96,9 +105,15 @@
 			]
 		},
 		{
-			"label": "build ALL",
+			"label": "make CMatrix test",
 			"type": "shell",
-			"command": "./build.sh",
+			"command": "make",
+			"args": [
+				"yogi_graphics_test_CMatrix4x4"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/build"
+			},
 			"group": "build",
 			"problemMatcher": [
 				{
@@ -110,144 +125,324 @@
 						"severity": 4,
 						"message": 5
 					}
-				},
+				}
+			]
+		},
+		{
+			"label": "make CPoint test",
+			"type": "shell",
+			"command": "make",
+			"args": [
+				"yogi_graphics_test_CPoint"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/build"
+			},
+			"group": "build",
+			"problemMatcher": [
 				{
 					"pattern": {
-						"regexp": "^\\*+\\s+([^:]+):\\s+(.*)$",
-						"severity": 1,
-						"message": 2
+						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5
 					}
-				},
+				}
+			]
+		},
+		{
+			"label": "make CVector test",
+			"type": "shell",
+			"command": "make",
+			"args": [
+				"yogi_graphics_test_CVector"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/build"
+			},
+			"group": "build",
+			"problemMatcher": [
 				{
 					"pattern": {
-						"regexp": "^libtool:\\s+(warning):\\s+(.*)$",
-						"severity": 1,
-						"message": 2
+						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5
 					}
 				}
-			],
-			"presentation": {
-				"clear": true
-			}
+			]
 		},
 		{
-			"label": "build <currentfile>",
+			"label": "make CUnitVector test",
 			"type": "shell",
-			"command": "./build.sh",
+			"command": "make",
 			"args": [
-				"${relativeFile}"
+				"yogi_graphics_test_CUnitVector"
 			],
-			"group": "build",
-			"problemMatcher": {
-				"owner": "cpp",
-				"fileLocation": [
-					"relative",
-					"${workspaceFolder}"
-				],
-				"pattern": {
-					"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
-					"file": 1,
-					"line": 2,
-					"column": 3,
-					"severity": 4,
-					"message": 5
-				}
+			"options": {
+				"cwd": "${workspaceFolder}/build"
 			},
-			"presentation": {
-				"clear": true
-			}
+			"group": "build",
+			"problemMatcher": [
+				{
+					"pattern": {
+						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5
+					}
+				}
+			]
 		},
 		{
-			"label": "build  --check <currentFileDirectory>",
+			"label": "make CPoint2 test",
 			"type": "shell",
-			"command": "./build.sh",
+			"command": "make",
 			"args": [
-				"${relativeFile}",
-				"-check"
+				"yogi_graphics_test_CPoint2"
 			],
-			"group": "build",
-			"problemMatcher": {
-				"pattern": {
-					"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
-					"file": 1,
-					"line": 2,
-					"column": 3,
-					"severity": 4,
-					"message": 5
-				}
+			"options": {
+				"cwd": "${workspaceFolder}/build"
 			},
-			"presentation": {
-				"clear": true
-			}
+			"group": "build",
+			"problemMatcher": [
+				{
+					"pattern": {
+						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5
+					}
+				}
+			]
 		},
 		{
-			"label": "build  --check ALL",
+			"label": "make json test",
 			"type": "shell",
-			"command": "./build.sh",
+			"command": "make",
 			"args": [
-				"ALL",
-				"-check"
+				"simulator_test_jsonRead"
 			],
-			"group": "build",
-			"problemMatcher": {
-				"pattern": {
-					"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
-					"file": 1,
-					"line": 2,
-					"column": 3,
-					"severity": 4,
-					"message": 5
-				}
+			"options": {
+				"cwd": "${workspaceFolder}/build"
 			},
-			"presentation": {
-				"clear": true
-			}
+			"group": "build",
+			"problemMatcher": [
+				{
+					"pattern": {
+						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5
+					}
+				}
+			]
 		},
 		{
-			"label": "build  --install ALL",
+			"label": "make TArray2 test",
 			"type": "shell",
-			"command": "./build.sh",
+			"command": "make",
 			"args": [
-				"ALL",
-				"-install"
+				"yogi_graphics_test_TArray2"
 			],
-			"group": "build",
-			"problemMatcher": {
-				"pattern": {
-					"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
-					"file": 1,
-					"line": 2,
-					"column": 3,
-					"severity": 4,
-					"message": 5
-				}
+			"options": {
+				"cwd": "${workspaceFolder}/build"
 			},
-			"presentation": {
-				"clear": true
-			}
+			"group": "build",
+			"problemMatcher": [
+				{
+					"pattern": {
+						"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+						"file": 1,
+						"line": 2,
+						"column": 3,
+						"severity": 4,
+						"message": 5
+					}
+				}
+			]
+		},
+		// {
+		// 	"label": "build ALL",
+		// 	"type": "shell",
+		// 	"command": "./build.sh",
+		// 	"group": "build",
+		// 	"problemMatcher": [
+		// 		{
+		// 			"pattern": {
+		// 				"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+		// 				"file": 1,
+		// 				"line": 2,
+		// 				"column": 3,
+		// 				"severity": 4,
+		// 				"message": 5
+		// 			}
+		// 		},
+		// 		{
+		// 			"pattern": {
+		// 				"regexp": "^\\*+\\s+([^:]+):\\s+(.*)$",
+		// 				"severity": 1,
+		// 				"message": 2
+		// 			}
+		// 		},
+		// 		{
+		// 			"pattern": {
+		// 				"regexp": "^libtool:\\s+(warning):\\s+(.*)$",
+		// 				"severity": 1,
+		// 				"message": 2
+		// 			}
+		// 		}
+		// 	],
+		// 	"presentation": {
+		// 		"clear": true
+		// 	}
+		// },
+		// {
+		// 	"label": "build <currentfile>",
+		// 	"type": "shell",
+		// 	"command": "./build.sh",
+		// 	"args": [
+		// 		"${relativeFile}"
+		// 	],
+		// 	"group": "build",
+		// 	"problemMatcher": {
+		// 		"owner": "cpp",
+		// 		"fileLocation": [
+		// 			"relative",
+		// 			"${workspaceFolder}"
+		// 		],
+		// 		"pattern": {
+		// 			"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+		// 			"file": 1,
+		// 			"line": 2,
+		// 			"column": 3,
+		// 			"severity": 4,
+		// 			"message": 5
+		// 		}
+		// 	},
+		// 	"presentation": {
+		// 		"clear": true
+		// 	}
+		// },
+		// {
+		// 	"label": "build  --check <currentFileDirectory>",
+		// 	"type": "shell",
+		// 	"command": "./build.sh",
+		// 	"args": [
+		// 		"${relativeFile}",
+		// 		"-check"
+		// 	],
+		// 	"group": "build",
+		// 	"problemMatcher": {
+		// 		"pattern": {
+		// 			"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+		// 			"file": 1,
+		// 			"line": 2,
+		// 			"column": 3,
+		// 			"severity": 4,
+		// 			"message": 5
+		// 		}
+		// 	},
+		// 	"presentation": {
+		// 		"clear": true
+		// 	}
+		// },
+		// {
+		// 	"label": "build  --check ALL",
+		// 	"type": "shell",
+		// 	"command": "./build.sh",
+		// 	"args": [
+		// 		"ALL",
+		// 		"-check"
+		// 	],
+		// 	"group": "build",
+		// 	"problemMatcher": {
+		// 		"pattern": {
+		// 			"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+		// 			"file": 1,
+		// 			"line": 2,
+		// 			"column": 3,
+		// 			"severity": 4,
+		// 			"message": 5
+		// 		}
+		// 	},
+		// 	"presentation": {
+		// 		"clear": true
+		// 	}
+		// },
+		// {
+		// 	"label": "build  --install ALL",
+		// 	"type": "shell",
+		// 	"command": "./build.sh",
+		// 	"args": [
+		// 		"ALL",
+		// 		"-install"
+		// 	],
+		// 	"group": "build",
+		// 	"problemMatcher": {
+		// 		"pattern": {
+		// 			"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+		// 			"file": 1,
+		// 			"line": 2,
+		// 			"column": 3,
+		// 			"severity": 4,
+		// 			"message": 5
+		// 		}
+		// 	},
+		// 	"presentation": {
+		// 		"clear": true
+		// 	}
+		// },
+		// {
+		// 	"label": "build  --make <currentFileDirectory>",
+		// 	"type": "shell",
+		// 	"command": "./build.sh",
+		// 	"args": [
+		// 		"${relativeFile}",
+		// 		"-make"
+		// 	],
+		// 	"group": "build",
+		// 	"problemMatcher": {
+		// 		"pattern": {
+		// 			"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
+		// 			"file": 1,
+		// 			"line": 2,
+		// 			"column": 3,
+		// 			"severity": 4,
+		// 			"message": 5
+		// 		}
+		// 	},
+		// 	"presentation": {
+		// 		"clear": true
+		// 	}
+		// }
+		{
+			"label": "pwd",
+			"type": "shell",
+			"command": "pwd",
+			"problemMatcher": []
 		},
 		{
-			"label": "build  --make <currentFileDirectory>",
+			"label": "c++ predefined variables",
 			"type": "shell",
-			"command": "./build.sh",
-			"args": [
-				"${relativeFile}",
-				"-make"
-			],
-			"group": "build",
-			"problemMatcher": {
-				"pattern": {
-					"regexp": "^([^:]+):([0-9]+):([0-9]+):\\s+([^:]+):\\s+(.*)$",
-					"file": 1,
-					"line": 2,
-					"column": 3,
-					"severity": 4,
-					"message": 5
-				}
-			},
-			"presentation": {
-				"clear": true
-			}
+			"command": "./build-variables.sh",
+			"problemMatcher": []
+		},
+		{
+			"label": "c++ predefined include paths",
+			"type": "shell",
+			"command": "./build-includes.sh",
+			"problemMatcher": []
 		}
 	]
 }

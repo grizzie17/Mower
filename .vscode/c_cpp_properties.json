@@ -33,7 +33,8 @@
                 "DEVROOT=${workspaceFolder}",
                 "OPENGL",
                 "GLUT",
-                "SIMULATOR"
+                "SIMULATOR",
+                "_USE_MATH_DEFINES"
             ],
             "includePath": [
                 ".",

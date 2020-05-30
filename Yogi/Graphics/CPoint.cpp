@@ -1,60 +1,114 @@
 
 #include "CPoint.hpp"
+#include "CVector.hpp"
+
 
 namespace Yogi { namespace Graphics {
 
-CPoint::CPoint( double x, double y, double z )
-		: m_x( x )
-		, m_y( y )
-		, m_z( z )
-{}
-
-CPoint::CPoint( CPoint& r )
-		: m_x( r.m_x )
-		, m_y( r.m_y )
-		, m_z( r.m_z )
-{}
-
 CPoint::CPoint()
-		: m_x( 0.0 )
-		, m_y( 0.0 )
-		, m_z( 0.0 )
+		: inherited()
 {}
+
+CPoint::CPoint( double x_, double y_, double z_ )
+		: inherited( x_, y_, z_ )
+{}
+
+CPoint::CPoint( const glm::vec3& pt )
+		: inherited( pt.x, pt.y, pt.z )
+{}
+
+CPoint::CPoint( const CPoint& r )
+		: inherited( r )
+{}
+
 
 CPoint::~CPoint()
 {}
 
 void
-CPoint::set( double x, double y, double z )
+CPoint::setX( double x_ )
 {
-	m_x = x;
-	m_y = y;
-	m_z = z;
+	this->x = x_;
 }
 
 void
-CPoint::setX( double x )
+CPoint::setY( double y_ )
 {
-	m_x = x;
+	this->y = y_;
 }
 
 void
-CPoint::setY( double y )
+CPoint::setZ( double z_ )
 {
-	m_y = y;
+	this->z = z_;
 }
 
 void
-CPoint::setZ( double z )
+CPoint::addVector( const CVector& r )
 {
-	m_z = z;
+	this->x += r.x;
+	this->y += r.y;
+	this->z += r.z;
 }
 
-bool
-CPoint::operator==( const CPoint& r ) const
+void
+CPoint::subtractVector( const CVector& r )
 {
-	return m_x == r.m_x && m_y == r.m_y && m_z == r.m_z;
+	this->x -= r.x;
+	this->y -= r.y;
+	this->z -= r.z;
 }
+
+const CPoint&
+CPoint::operator+=( const CVector& r )
+{
+	addVector( r );
+	return *this;
+}
+
+CPoint
+CPoint::operator+( const CVector& r ) const
+{
+	CPoint p( *this );
+	p.addVector( r );
+	return p;
+}
+
+const CPoint&
+CPoint::operator-=( const CVector& r )
+{
+	subtractVector( r );
+	return *this;
+}
+
+CPoint
+CPoint::operator-( const CVector& r ) const
+{
+	CPoint p( *this );
+	p.subtractVector( r );
+	return p;
+}
+
+const CPoint&
+CPoint::operator+=( double c )
+{
+	this->x += c;
+	this->y += c;
+	this->z += c;
+	return *this;
+}
+
+CVector
+CPoint::operator-( const CPoint& r ) const
+{
+	return CVector( this->x - r.x, this->y - r.y, this->z - r.z );
+}
+
+// bool
+// CPoint::operator==( const CPoint& r ) const
+// {
+// 	return this->x == r.x && this->y == r.y && this->z == r.z;
+// }
 
 
 }}    // namespace Yogi::Graphics

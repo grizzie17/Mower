@@ -1,92 +1,97 @@
 {
-	// spell-checker: disable
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"extensions": {
-		"recommendations": [
-			"ms-vscode.cpptools",
-			"github.vscode-pull-request-github"
-		]
-	},
-	"settings": {
-		"editor.formatOnSave": true,
-		"editor.formatOnType": true,
-		"editor.formatOnPaste": true,
-		"editor.defaultFormatter": "ms-vscode.cpptools",
-		"workbench.colorCustomizations": {
-			// "titleBar.activeBackground": "#523232",
-			// "titleBar.inactiveBackground": "#413030",
-			"activityBar.background": "#233f1f"
-		},
-		//========= CMAKE ==========//
-		// "cmake.cmakePath": "C:/msys64/mingw64/bin/cmake.exe",
-		// "cmake.buildTask": true,
-		// "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
-		// "cmake.mingwSearchDirs": [
-		// 	"/mingw64",
-		// 	"/usr/bin"
-		// ],
-		// "cmake.clearOutputBeforeBuild": true,
-		// "cmake.generator": "Unix Makefiles",
-		// "cmake.preferredGenerators": [
-		// 	"Ninja",
-		// 	"Unix Makefiles"
-		// ],
-		// "cmake.configureSettings": {
-		// 	"CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-g++.exe",
-		// 	"CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe"
-		// },
-		// "cmake.configureEnvironment": {
-		// 	"CMAKE_CXX_COMPILER": "x86_64-w64-mingw32-g++",
-		// 	"CMAKE_C_COMPILER": "x86_64-w64-mingw32-gcc"
-		// },
-		// "cmake.buildEnvironment": {
-		// 	"CMAKE_CXX_COMPILER": "x86_64-w64-mingw32-g++.exe",
-		// 	"CMAKE_C_COMPILER": "x86_64-w64-mingw32-gcc.exe"
-		// },
-		"terminal.integrated.shell.windows": "C:/msys64/usr/bin/bash.exe",
-		"terminal.integrated.shellArgs.windows": [
-			"--login",
-			"-i"
-		],
-		"terminal.integrated.env.windows": {
-			"MSYSTEM": "MINGW64",
-			"CHERE_INVOKING": "1"
-		},
-		"C_Cpp.clang_format_path": "C:/Program Files/LLVM/bin/clang-format.exe",
-		"C_Cpp.clang_format_style": "file",
-		//"C_Cpp.formatting": "Disabled",
-		//"uncrustify.configPath.windows": "uncrustify.cfg",
-		"github.repositories": [
-			"grizzie17/Mower"
-		],
-		"github.host": "github.com",
-		"github.username": "grizzie17",
-		"githubPullRequests.hosts": [
-			{
-				"host": "https://github.com",
-				"username": "grizzie17"
-			}
-		],
-		"editor.tabCompletion": "on",
-		"cSpell.enableFiletypes": [
-			"!asciidoc",
-			"c++",
-			"cpp",
-			"markdown"
-		],
-		"cSpell.enabled": true,
-		"files.associations": {
-			".clang-format": "yaml",
-			"doxyfile": "yaml",
-			"cstring": "cpp",
-			"ostream": "cpp",
-			"cmath": "cpp",
-			"climits": "cpp"
-		},
-		"cmake.cmakePath": "C:/msys64/usr/bin/cmake.exe"
-	}
+    // spell-checker: disable
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "extensions": {
+        "recommendations": [
+            "ms-vscode.cpptools",
+            "twxs.cmake",
+            //"humao.rest-client",
+            "github.vscode-pull-request-github"
+        ]
+    },
+    "settings": {
+        "editor.tabCompletion": "on",
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.formatOnPaste": true,
+        "workbench.colorCustomizations": {
+            // "titleBar.activeBackground": "#523232",
+            // "titleBar.inactiveBackground": "#413030",
+            "activityBar.background": "#233f1f"
+        },
+        "yaml.validate": true,
+        "yaml.format.enable": true,
+        //========= CMAKE ==========//
+        // "cmake.cmakePath": "C:/msys64/mingw64/bin/cmake.exe",
+        // "cmake.buildTask": true,
+        // "cmake.buildDirectory": "${workspaceFolder}/build/${buildType}",
+        // "cmake.mingwSearchDirs": [
+        // 	"/mingw64",
+        // 	"/usr/bin"
+        // ],
+        // "cmake.clearOutputBeforeBuild": true,
+        // "cmake.generator": "Unix Makefiles",
+        // "cmake.preferredGenerators": [
+        // 	"Ninja",
+        // 	"Unix Makefiles"
+        // ],
+        // "cmake.configureSettings": {
+        // 	"CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-g++.exe",
+        // 	"CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe"
+        // },
+        // "cmake.configureEnvironment": {
+        // 	"CMAKE_CXX_COMPILER": "x86_64-w64-mingw32-g++",
+        // 	"CMAKE_C_COMPILER": "x86_64-w64-mingw32-gcc"
+        // },
+        // "cmake.buildEnvironment": {
+        // 	"CMAKE_CXX_COMPILER": "x86_64-w64-mingw32-g++.exe",
+        // 	"CMAKE_C_COMPILER": "x86_64-w64-mingw32-gcc.exe"
+        // },
+        "terminal.integrated.shell.windows": "C:/msys64/usr/bin/bash.exe",
+        "terminal.integrated.shellArgs.windows": [
+            "--login",
+            "-i"
+        ],
+        "terminal.integrated.env.windows": {
+            "MSYSTEM": "MINGW64",
+            "CHERE_INVOKING": "1"
+        },
+        "C_Cpp.clang_format_path": "C:/Program Files/LLVM/bin/clang-format.exe",
+        "C_Cpp.clang_format_style": "file",
+        "github.repositories": [
+            "grizzie17/Mower"
+        ],
+        "github.host": "github.com",
+        "github.username": "grizzie17",
+        "githubPullRequests.hosts": [
+            {
+                "host": "https://github.com",
+                "username": "grizzie17"
+            }
+        ],
+        "cSpell.enableFiletypes": [
+            "!asciidoc",
+            "c++",
+            "cpp",
+            "markdown"
+        ],
+        "cSpell.enabled": false,
+        "files.associations": {
+            ".clang-format": "yaml",
+            "doxyfile": "yaml",
+        },
+        "cmake.cmakePath": "C:/msys64/usr/bin/cmake.exe",
+        "json.schemas": [
+            {
+                "fileMatch": [
+                    "simulator/environment.json"
+                ],
+                "url": "./simulator/json-schema/env-schema.json"
+            }
+        ]
+    }
 }

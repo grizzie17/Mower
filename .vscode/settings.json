@@ -3,6 +3,7 @@
 		"markdown"
 	],
 	"cSpell.words": [
+		"CMATRIX",
 		"CUNITVECTOR",
 		"CXSCREEN",
 		"CYSCREEN",
@@ -41,13 +42,18 @@
 		"Wwindow",
 		"XMAX",
 		"YMAX",
+		"ccamera",
 		"cgps",
 		"ebase",
+		"freeglut",
+		"glew",
 		"glfw",
+		"hpp",
 		"lpfn",
 		"powerup",
 		"ppfd",
 		"println",
-		"receiver"
+		"receiver",
+		"tname"
 	]
 }

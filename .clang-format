@@ -5,8 +5,8 @@ BasedOnStyle: WebKit
 # Normal Stuff
 IndentWidth: 4
 TabWidth: 4
-UseTab: ForContinuationAndIndentation
-ColumnLimit: 96
+UseTab: Never
+ColumnLimit: 80
 
 AlignConsecutiveDeclarations: true
 AlignConsecutiveMacros: true
@@ -20,7 +20,7 @@ AllowShortFunctionsOnASingleLine: false
 
 AlwaysBreakAfterReturnType: All
 AlwaysBreakBeforeMultilineStrings: true
-AlwaysBreakTemplateDeclarations: Yes
+AlwaysBreakTemplateDeclarations: "Yes"
 
 # Braces
 BreakBeforeBraces: Custom
@@ -34,7 +34,7 @@ BraceWrapping:
   AfterUnion: true
   BeforeCatch: true
   BeforeElse: true
-  IndentBraces:    false
+  IndentBraces: false
   SplitEmptyFunction: false
   SplitEmptyNamespace: false
   SplitEmptyRecord: false
@@ -52,7 +52,6 @@ ConstructorInitializerAllOnOneLineOrOnePerLine: false
 ConstructorInitializerIndentWidth: 8
 ContinuationIndentWidth: 8
 
-
 FixNamespaceComments: true
 
 IndentCaseLabels: false
@@ -69,7 +68,6 @@ DerivePointerAlignment: false
 PointerAlignment: Left
 
 ReflowComments: false
-
 
 SpaceAfterLogicalNot: true
 SpaceBeforeAssignmentOperators: true
@@ -89,6 +87,3 @@ StatementMacros:
 ---
 Language: Cpp
 Standard: c++17
-
-
-...

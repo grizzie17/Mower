@@ -11,7 +11,87 @@
 			"program": "${workspaceFolder}/build/simulator/Mower.exe",
 			"args": [],
 			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}/build/simulator",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				}
+			]
+		},
+		{
+			"name": "(gdb) CMatrix4x4",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/Yogi/Graphics/test/yogi_graphics_test_CMatrix4x4.exe",
+			"args": [],
+			"stopAtEntry": false,
 			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				}
+			]
+		},
+		{
+			"name": "(gdb) CVector",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/Yogi/Graphics/test/yogi_graphics_test_CVector.exe",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				}
+			]
+		},
+		{
+			"name": "(gdb) CUnitVector",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/Yogi/Graphics/test/yogi_graphics_test_CUnitVector.exe",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}",
+			"environment": [],
+			"externalConsole": false,
+			"MIMode": "gdb",
+			"miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",
+			"setupCommands": [
+				{
+					"description": "Enable pretty-printing for gdb",
+					"text": "-enable-pretty-printing",
+					"ignoreFailures": true
+				}
+			]
+		},
+		{
+			"name": "(gdb) json",
+			"type": "cppdbg",
+			"request": "launch",
+			"program": "${workspaceFolder}/build/simulator/test/simulator_test_jsonRead.exe",
+			"args": [],
+			"stopAtEntry": false,
+			"cwd": "${workspaceFolder}/build/simulator/test",
 			"environment": [],
 			"externalConsole": false,
 			"MIMode": "gdb",

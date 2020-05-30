@@ -11,10 +11,14 @@ Yogi::Arduino::CSerial Serial;
 static unsigned long long
 millis_()
 {
-	unsigned long long milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(
-			std::chrono::system_clock::now().time_since_epoch() )
-											  .count();
-	return milliseconds;
+	std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
+	auto                                               duration = now.time_since_epoch();
+	auto milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>( duration );
+	return milliseconds.count();
+	// unsigned long long milliseconds = std::chrono::duration_cast<std::chrono::milliseconds>(
+	// 		std::chrono::system_clock::now().time_since_epoch() )
+	// 										  .count();
+	// return milliseconds;
 }
 
 unsigned long long g_uMillisBase = 0;
@@ -27,13 +31,17 @@ millis()
 	return (unsigned long)( u - g_uMillisBase );
 }
 
-unsigned long long
+static unsigned long long
 micros_()
 {
-	unsigned long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(
-			std::chrono::system_clock::now().time_since_epoch() )
-											  .count();
-	return microseconds;
+	std::chrono::time_point<std::chrono::system_clock> now = std::chrono::system_clock::now();
+	auto                                               duration = now.time_since_epoch();
+	auto microseconds = std::chrono::duration_cast<std::chrono::microseconds>( duration );
+	return microseconds.count();
+	// unsigned long long microseconds = std::chrono::duration_cast<std::chrono::microseconds>(
+	// 		std::chrono::system_clock::now().time_since_epoch() )
+	// 										  .count();
+	// return microseconds;
 }
 
 unsigned long long g_uMicrosBase = 0;
@@ -55,5 +63,7 @@ delay( unsigned long milli )
 void
 delayMicroseconds( unsigned long micro )
 {
+	if ( micro < 1000 )
+		micro = 1000;    // NEEDS_WORK: horrible kludge
 	std::this_thread::sleep_for( std::chrono::microseconds( micro ) );
 }

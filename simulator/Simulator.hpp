@@ -6,12 +6,15 @@
 #ifndef HPP_Simulator
 #define HPP_Simulator
 
-#define WIN32_LEAN_AND_MEAN
 
+#include "CCamera.hpp"
+#include "CPoint2.hpp"
 #include "Draw.hpp"
 #include "Environment.hpp"
 
 #include <string>
+
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #define YMAX 700
@@ -60,6 +63,9 @@ protected:
 	void
 	onSize( UINT nType, int cx, int cy );
 
+	void
+	onMouseMove( const Yogi::Graphics::CPoint2& oldPos, const Yogi::Graphics::CPoint2& newPos );
+
 
 	HWND
 	windowCreate( LPCSTR sTitle, int x, int y, int width, int height, int type, int flags );
@@ -70,15 +76,19 @@ protected:
 
 	// protected data  --------------------------
 
-	HINSTANCE   m_hInstance;
-	HDC         m_hDC;
-	HWND        m_hWnd;
-	std::string m_sTitle;
-	std::string m_sCmdLine;
-	int         m_nCmdShow;
+	HINSTANCE               m_hInstance;
+	HDC                     m_hDC;
+	HWND                    m_hWnd;
+	std::string             m_sTitle;
+	std::string             m_sCmdLine;
+	int                     m_nCmdShow;
+	bool                    m_bMouse;
+	Yogi::Graphics::CPoint2 m_tMousePosition;
+	Yogi::Graphics::CPoint2 m_tMouseOld;
 
-	OpenGLDraw*  m_pDraw;
-	Environment* m_pEnvironment;
+	Yogi::Graphics::OpenGLDraw* m_pDraw;
+	Yogi::Graphics::CCamera*    m_pCamera;
+	Environment*                m_pEnvironment;
 };
 
 }}    // namespace Yogi::Simulator

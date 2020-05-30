@@ -1,0 +1,97 @@
+{
+	"type": "object",
+	"properties": {
+		"terrain": {
+			"type": "object",
+			"properties": {
+				"rows": {
+					"type": "number",
+					"description": "number of rows in DTM",
+					"default": 5
+				},
+				"columns": {
+					"type": "number",
+					"description": "number of columns in DTM",
+					"default": 5
+				},
+				"rowSpacing": {
+					"type": "number",
+					"description": "DTM row spacing in meters",
+					"default": 1
+				},
+				"colSpacing": {
+					"type": "number",
+					"description": "DTM column spacing in meters",
+					"default": 1
+				},
+				"elevations": {
+					"type": "array",
+					"description": "list of DTM rows",
+					"items": {
+						"$ref": "#/definitions/rowDef",
+						"description": "list of DTM rows"
+					}
+				}
+			}
+		},
+		"lights": {
+			"type": "array",
+			"description": "list of lights",
+			"items": {
+				"$ref": "#/definitions/light",
+				"description": "array of lights"
+			}
+		}
+	},
+	"definitions": {
+		"rowDef": {
+			"type": "array",
+			"items": {
+				"type": "number",
+				"description": "comma separated list of elevations"
+			}
+		},
+		"light": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "number",
+					"description": "light identification"
+				},
+				"position": {
+					"$ref": "#/definitions/positionDef",
+					"description": "array [x, y, z]"
+				}
+			}
+		},
+		"positionDef": {
+			"type": "array",
+			"items": {
+				"type": "number",
+				"description": "coordinates [x, y, z]"
+			}
+		},
+		"plantDef": {
+			"type": "object",
+			"properties": {
+				"kind": {
+					"type": "string",
+					"enum": [
+						"tree",
+						"bush",
+						"other"
+					],
+					"description": "type of plant"
+				},
+				"diameter": {
+					"type": "number",
+					"description": "diameter of plant in meters"
+				},
+				"position": {
+					"$ref": "#/definitions/positionDef",
+					"description": "array [x, y]"
+				}
+			}
+		}
+	}
+}
