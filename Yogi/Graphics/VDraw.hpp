@@ -8,6 +8,7 @@
 #define _HPP_VDraw_
 
 #include "CPoint.hpp"
+#include "CUnitVector.hpp"
 
 //#include "Interface.hpp"
 
@@ -46,9 +47,9 @@ struct VDraw
     //!
     //! must be bracketed by begin/endXxxx function
     virtual void
-    polypoint( double x,         //!< [in] x
-            double    y,         //!< [in] y
-            double    z = 0.0    //!< [in] z
+    polypoint( double x,       //!< [in] x
+            double    y,       //!< [in] y
+            double    z = 0.0  //!< [in] z
             )
             = 0;
 
@@ -99,6 +100,6 @@ struct VDraw
             = 0;
 };
 
-}}    // namespace Yogi::Graphics
+}}  // namespace Yogi::Graphics
 
-#endif    //_HPP_VDraw_
+#endif  //_HPP_VDraw_

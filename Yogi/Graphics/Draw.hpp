@@ -62,9 +62,9 @@ protected:
     // protected data  --------------------------
 
     HINSTANCE   m_hInstance;
-    HDC         m_hDC;     //!< MS-Windows DC
-    HWND        m_hWnd;    //!< MS-Windows Window Handle
-    HGLRC       m_hRC;     //!< OpenGL Resource Context
+    HDC         m_hDC;   //!< MS-Windows DC
+    HWND        m_hWnd;  //!< MS-Windows Window Handle
+    HGLRC       m_hRC;   //!< OpenGL Resource Context
     PAINTSTRUCT m_tPaint;
     CPoint2     m_tScreenSize;
     CCamera*    m_pCamera;
@@ -86,14 +86,17 @@ public:
     virtual void
     placeLight( unsigned id, const CPoint& position ) override;
 
+    virtual void
+    normal( const CUnitVector& v ) override;
+
 
     //! add point/vertex to draw buffer
     //! must be bracketed by beginPolygon or similar
     virtual void
-    polypoint(                //! void
-            double x,         //!< [in] x
-            double y,         //!< [in] y
-            double z = 0.0    //!< [in] z
+    polypoint(              //! void
+            double x,       //!< [in] x
+            double y,       //!< [in] y
+            double z = 0.0  //!< [in] z
             ) override;
 
 
@@ -126,6 +129,6 @@ public:
     setColor( double r, double g, double b ) override;
 };
 
-}}    // namespace Yogi::Graphics
+}}  // namespace Yogi::Graphics
 
-#endif    // _HPP_Draw_
+#endif  // _HPP_Draw_

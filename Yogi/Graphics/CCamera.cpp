@@ -256,10 +256,10 @@ CCamera::viewRender()
 
     glLoadIdentity();
 
-    gluLookAt(                                              //
-            m_tPosition.x, m_tPosition.y, m_tPosition.z,    // eye
-            m_tTarget.x, m_tTarget.y, m_tTarget.z,          // target
-            m_tUpWorld.x, m_tUpWorld.y, m_tUpWorld.z        // up
+    gluLookAt(                                            //
+            m_tPosition.x, m_tPosition.y, m_tPosition.z,  // eye
+            m_tTarget.x, m_tTarget.y, m_tTarget.z,        // target
+            m_tUpWorld.x, m_tUpWorld.y, m_tUpWorld.z      // up
     );
 
 
@@ -273,4 +273,4 @@ CCamera::viewRender()
     // glRotated( 90.0 - m_dYaw, 0, 0, -1 );    // yaw
 }
 
-}}    // namespace Yogi::Graphics
+}}  // namespace Yogi::Graphics

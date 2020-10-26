@@ -14,9 +14,10 @@ pushd $THISDIR/build &>/dev/null
 
 	cmake "$@" ..
 	sts=$?
-	if [ $sts ]; then
-		make
-	fi
+	# if [ $sts ]; then
+	# 	make
+    #     sts=$?
+	# fi
 
 
 popd &>/dev/null

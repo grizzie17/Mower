@@ -15,11 +15,11 @@ using namespace Yogi::Utilities;
 TEST( CMatrix4x4, initial )
 {
     CMatrix4x4 myMat;
-    CMatrix4x4 t(          //
-            1, 0, 0, 0,    //
-            0, 1, 0, 0,    //
-            0, 0, 1, 0,    //
-            0, 0, 0, 1     //
+    CMatrix4x4 t(        //
+            1, 0, 0, 0,  //
+            0, 1, 0, 0,  //
+            0, 0, 1, 0,  //
+            0, 0, 0, 1   //
     );
 
     ASSERT_TRUE( t == myMat );
@@ -49,11 +49,11 @@ TEST( CMatrix4x4, copy )
 
 TEST( CMatrix4x4, getElement )
 {
-    CMatrix4x4 m(             //
-            0, 1, 2, 3,       //
-            4, 5, 6, 7,       //
-            8, 9, 10, 11,     //
-            12, 13, 14, 15    //
+    CMatrix4x4 m(           //
+            0, 1, 2, 3,     //
+            4, 5, 6, 7,     //
+            8, 9, 10, 11,   //
+            12, 13, 14, 15  //
     );
 
     ASSERT_DOUBLE_EQ( 0, m[0][0] );
@@ -78,11 +78,11 @@ TEST( CMatrix4x4, setElement )
 
 TEST( CMatrix4x4, getMat4x4 )
 {
-    CMatrix4x4  m(                //
-            0, 1, 2, 3,          //
-            4, 5, 6, 7,          //
-            8, 9, 10, 11,        //
-            12, 13, 14, 15 );    //
+    CMatrix4x4  m(              //
+            0, 1, 2, 3,        //
+            4, 5, 6, 7,        //
+            8, 9, 10, 11,      //
+            12, 13, 14, 15 );  //
     glm::mat4x4 g = m.getMat4x4();
 
     ASSERT_DOUBLE_EQ( 0, m[0][0] );
@@ -96,16 +96,16 @@ TEST( CMatrix4x4, getMat4x4 )
 
 TEST( CMatrix4x4, transpose )
 {
-    CMatrix4x4 m(                //
-            0, 1, 2, 3,          //
-            4, 5, 6, 7,          //
-            8, 9, 10, 11,        //
-            12, 13, 14, 15 );    //
-    CMatrix4x4 t(                //
-            0, 4, 8, 12,         //
-            1, 5, 9, 13,         //
-            2, 6, 10, 14,        //
-            3, 7, 11, 15         //
+    CMatrix4x4 m(              //
+            0, 1, 2, 3,        //
+            4, 5, 6, 7,        //
+            8, 9, 10, 11,      //
+            12, 13, 14, 15 );  //
+    CMatrix4x4 t(              //
+            0, 4, 8, 12,       //
+            1, 5, 9, 13,       //
+            2, 6, 10, 14,      //
+            3, 7, 11, 15       //
     );
     CMatrix4x4 c = m.transpose();
 
@@ -114,11 +114,11 @@ TEST( CMatrix4x4, transpose )
 
 TEST( CMatrix4x4, determinant )
 {
-    CMatrix4x4 m(                //
-            0, 1, 2, 3,          //
-            4, 5, 6, 7,          //
-            8, 9, 10, 11,        //
-            12, 13, 14, 15 );    //
+    CMatrix4x4 m(              //
+            0, 1, 2, 3,        //
+            4, 5, 6, 7,        //
+            8, 9, 10, 11,      //
+            12, 13, 14, 15 );  //
     double     d = m.determinant();
 
     ASSERT_DOUBLE_EQ( -1048, d );
@@ -126,11 +126,11 @@ TEST( CMatrix4x4, determinant )
 
 TEST( CMatrix4x4, transformPoint )
 {
-    CMatrix4x4 m(           //
-            1, 0, 0, 10,    //
-            0, 1, 0, 0,     //
-            0, 0, 1, 0,     //
-            0, 0, 0, 1      //
+    CMatrix4x4 m(         //
+            1, 0, 0, 10,  //
+            0, 1, 0, 0,   //
+            0, 0, 1, 0,   //
+            0, 0, 0, 1    //
     );
     CPoint     p( 0, 0, 0 );
     CPoint     result = m * p;
@@ -141,7 +141,7 @@ TEST( CMatrix4x4, transformPoint )
 
 TEST( CMatrix4x4, multiplyMatrix )
 {
-    CMatrix4x4 m( 1.0 );    // identity
+    CMatrix4x4 m( 1.0 );  // identity
     m[0][3] = 10;
 
     CMatrix4x4 h( 2.0 );
@@ -149,29 +149,30 @@ TEST( CMatrix4x4, multiplyMatrix )
 
     CMatrix4x4 result = h * m;
 
-    ASSERT_DOUBLE_EQ( 20, result[0][3] );    // remember: second matrix has 2 on its diagonal
+    ASSERT_DOUBLE_EQ( 20,
+            result[0][3] );  // remember: second matrix has 2 on its diagonal
     ASSERT_DOUBLE_EQ( 5, result[1][3] );
 }
 
 TEST( CMatrix4x4, multiplyMatrix2 )
 {
-    CMatrix4x4 a(          //
-            5, 2, 6, 1,    //
-            0, 6, 2, 0,    //
-            3, 8, 1, 4,    //
-            1, 8, 5, 6     //
+    CMatrix4x4 a(        //
+            5, 2, 6, 1,  //
+            0, 6, 2, 0,  //
+            3, 8, 1, 4,  //
+            1, 8, 5, 6   //
     );
-    CMatrix4x4 b(          //
-            7, 5, 8, 0,    //
-            1, 8, 2, 6,    //
-            9, 4, 3, 8,    //
-            5, 3, 7, 9     //
+    CMatrix4x4 b(        //
+            7, 5, 8, 0,  //
+            1, 8, 2, 6,  //
+            9, 4, 3, 8,  //
+            5, 3, 7, 9   //
     );
-    CMatrix4x4 t(               //
-            96, 68, 69, 69,     //
-            24, 56, 18, 52,     //
-            58, 95, 71, 92,     //
-            90, 107, 81, 142    //
+    CMatrix4x4 t(             //
+            96, 68, 69, 69,   //
+            24, 56, 18, 52,   //
+            58, 95, 71, 92,   //
+            90, 107, 81, 142  //
     );
     CMatrix4x4 r = a * b;
 
@@ -273,8 +274,8 @@ TEST( CMatrix4x4, buildRotateAroundZAxis )
 
 TEST( CMatrix4x4, rotateByPitchAndYaw )
 {
-    float      rPitch = radiansFromDegrees( 45.0f );
-    float      rYaw = radiansFromDegrees( 45.0f );
+    double     rPitch = radiansFromDegrees( 45.0 );
+    double     rYaw = radiansFromDegrees( 45.0 );
     CMatrix4x4 m = CMatrix4x4::buildFromPitchAndYaw( rPitch, rYaw );
 
     CVector     vNorm( 1, 0, 0 );
@@ -289,39 +290,39 @@ TEST( CMatrix4x4, rotateByPitchAndYaw )
 
 // TEST( CMatrix4x4, rotateByPitchAndYaw2 )
 // {
-// 	double     fPitch = radiansFromDegrees( 45.0f );
-// 	double     fYaw = radiansFromDegrees( 45.0f );
-// 	CMatrix4x4 mPitch = CMatrix4x4::buildRotateAroundYAxis( -fPitch );
-// 	CMatrix4x4 mYaw = CMatrix4x4::buildRotateAroundZAxis( fYaw );
-// 	CMatrix4x4 m = mPitch * mYaw;
-// 	CMatrix4x4 mYP = CMatrix4x4::buildFromPitchAndYaw( fPitch, fYaw );
+//     double     fPitch = radiansFromDegrees( 45.0 );
+//     double     fYaw = radiansFromDegrees( 45.0 );
+//     CMatrix4x4 mPitch = CMatrix4x4::buildRotateAroundYAxis( -fPitch );
+//     CMatrix4x4 mYaw = CMatrix4x4::buildRotateAroundZAxis( fYaw );
+//     CMatrix4x4 m = mPitch * mYaw;
+//     CMatrix4x4 mYP = CMatrix4x4::buildFromPitchAndYaw( fPitch, fYaw );
 
-// 	ASSERT_TRUE( m == mYP );
+//     // ASSERT_TRUE( m == mYP );
 
-// 	CVector v( 1, 0, 0 );
+//     CVector v( 1, 0, 0 );
 
-// 	// assure that each matrix works
-// 	CVector rP = mPitch * v;
-// 	ASSERT_DOUBLE_EQ( 0.0f, rP.y );
-// 	ASSERT_DOUBLE_EQ( rP.x, rP.z );
+//     // assure that each matrix works
+//     CVector rP = mPitch * v;
+//     ASSERT_DOUBLE_EQ( 0.0f, rP.y );
+//     ASSERT_DOUBLE_EQ( rP.x, rP.z );
 
-// 	CVector rY = mYaw * v;
-// 	ASSERT_DOUBLE_EQ( 0.0f, rY.z );
-// 	ASSERT_DOUBLE_EQ( rY.x, rY.y );
+//     CVector rY = mYaw * v;
+//     ASSERT_DOUBLE_EQ( 0.0f, rY.z );
+//     ASSERT_DOUBLE_EQ( rY.x, rY.y );
 
-// 	CUnitVector t( 1, 1, 1 );
-// 	CUnitVector u = rY + rP;
-// 	ASSERT_DOUBLE_EQ( u.x, t.x );
-// 	ASSERT_DOUBLE_EQ( u.y, t.y );
-// 	ASSERT_DOUBLE_EQ( u.z, t.z );
+//     CUnitVector t( 1, 1, 1 );
+//     CUnitVector u = rY + rP;
+//     ASSERT_DOUBLE_EQ( u.x, t.x );
+//     ASSERT_DOUBLE_EQ( u.y, t.y );
+//     ASSERT_DOUBLE_EQ( u.z, t.z );
 
-// 	CVector     r = m * v;
-// 	CUnitVector a = r;
-// 	//CUnitVector r = m * v;
+//     CVector     r = m * v;
+//     CUnitVector a = r;
+//     //CUnitVector r = m * v;
 
-// 	ASSERT_DOUBLE_EQ( a.x, t.x );
-// 	ASSERT_DOUBLE_EQ( a.y, t.y );
-// 	ASSERT_DOUBLE_EQ( a.z, t.z );
+//     ASSERT_DOUBLE_EQ( a.x, t.x );
+//     ASSERT_DOUBLE_EQ( a.y, t.y );
+//     ASSERT_DOUBLE_EQ( a.z, t.z );
 
-// 	ASSERT_TRUE( t == a );
+//     ASSERT_TRUE( t == a );
 // }

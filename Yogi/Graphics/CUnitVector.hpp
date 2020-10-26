@@ -8,60 +8,60 @@ namespace Yogi { namespace Graphics {
 class CUnitVector : public CVector
 {
 public:
-	// class lifecycle --------------------------
-	CUnitVector();
-	CUnitVector( double x, double y, double z );
-	CUnitVector( const CUnitVector& r );
-	CUnitVector( const CVector& r );
-	CUnitVector( const CPoint& r );
-	CUnitVector( const glm::vec3& r );
+    // class lifecycle --------------------------
+    CUnitVector();
+    CUnitVector( double x, double y, double z );
+    CUnitVector( const CUnitVector& r );
+    CUnitVector( const CVector& r );
+    CUnitVector( const CPoint& r );
+    CUnitVector( const glm::vec3& r );
 
 public:
-	// public functions -------------------------
+    // public functions -------------------------
 
-	virtual void
-	set( double x, double y, double z );
-	const CUnitVector&
-	operator=( const CVector& r );
+    virtual void
+    set( double x, double y, double z ) override;
+    const CUnitVector&
+    operator=( const CVector& r );
 
-	CVector
-	operator*( double magnitude ) const;
+    CVector
+    operator*( double magnitude ) const;
 
 
-	CVector
-	scaleVector( double magnitude ) const;
+    CVector
+    scaleVector( double magnitude ) const;
 
-	static CUnitVector
-	buildFromPitchAndYaw( double fPitch, double fYaw );
+    static CUnitVector
+    buildFromPitchAndYaw( double fPitch, double fYaw );
 
 protected:
-	// protected functions ----------------------
+    // protected functions ----------------------
 
-	void
-	normalize();
+    void
+    normalize();
 
 private:
-	// private types ----------------------------
-	typedef CVector inherited;
+    // private types ----------------------------
+    typedef CVector inherited;
 };
 
 
 inline const CUnitVector&
 CUnitVector::operator=( const CVector& r )
 {
-	set( r.x, r.y, r.z );
-	return *this;
+    set( r.x, r.y, r.z );
+    return *this;
 }
 
 
 inline CVector
 CUnitVector::operator*( double magnitude ) const
 {
-	return scaleVector( magnitude );
+    return scaleVector( magnitude );
 }
 
 
-}}    // namespace Yogi::Graphics
+}}  // namespace Yogi::Graphics
 
 
-#endif    // HPP_CUNITVECTOR
+#endif  // HPP_CUNITVECTOR

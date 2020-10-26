@@ -8,8 +8,8 @@
     "extensions": {
         "recommendations": [
             "ms-vscode.cpptools",
+            "ms-vscode.cmake-tools",
             "twxs.cmake",
-            //"humao.rest-client",
             "github.vscode-pull-request-github"
         ]
     },
@@ -40,8 +40,8 @@
         // 	"Unix Makefiles"
         // ],
         // "cmake.configureSettings": {
-        // 	"CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-g++.exe",
-        // 	"CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe"
+        //     "CMAKE_CXX_COMPILER": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-g++.exe",
+        //     "CMAKE_C_COMPILER": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe"
         // },
         // "cmake.configureEnvironment": {
         // 	"CMAKE_CXX_COMPILER": "x86_64-w64-mingw32-g++",
@@ -51,15 +51,17 @@
         // 	"CMAKE_CXX_COMPILER": "x86_64-w64-mingw32-g++.exe",
         // 	"CMAKE_C_COMPILER": "x86_64-w64-mingw32-gcc.exe"
         // },
-        "terminal.integrated.shell.windows": "C:/msys64/usr/bin/bash.exe",
-        "terminal.integrated.shellArgs.windows": [
-            "--login",
-            "-i"
-        ],
-        "terminal.integrated.env.windows": {
-            "MSYSTEM": "MINGW64",
-            "CHERE_INVOKING": "1"
-        },
+        //========= TERMINAL =========
+        // "terminal.integrated.shell.windows": "C:/msys64/usr/bin/bash.exe",
+        // "terminal.integrated.shellArgs.windows": [
+        //     "--login",
+        //     "-i"
+        // ],
+        // "terminal.integrated.env.windows": {
+        //     "MSYSTEM": "MINGW64",
+        //     "CHERE_INVOKING": "1"
+        // },
+        "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
         "C_Cpp.clang_format_path": "C:/Program Files/LLVM/bin/clang-format.exe",
         "C_Cpp.clang_format_style": "file",
         "github.repositories": [
@@ -73,18 +75,97 @@
                 "username": "grizzie17"
             }
         ],
-        "cSpell.enableFiletypes": [
-            "!asciidoc",
-            "c++",
-            "cpp",
-            "markdown"
-        ],
-        "cSpell.enabled": false,
+        // "cSpell.enableFiletypes": [
+        //     "!asciidoc",
+        //     "c++",
+        //     "cpp",
+        //     "markdown"
+        // ],
+        // "cSpell.enabled": false,
         "files.associations": {
             ".clang-format": "yaml",
+            "yaml": "yaml",
             "doxyfile": "yaml",
+            "cstring": "cpp",
+            "ostream": "cpp",
+            "cmath": "cpp",
+            "climits": "cpp",
+            "cctype": "cpp",
+            "clocale": "cpp",
+            "csignal": "cpp",
+            "cstdarg": "cpp",
+            "cstddef": "cpp",
+            "cstdio": "cpp",
+            "cstdlib": "cpp",
+            "ctime": "cpp",
+            "cwchar": "cpp",
+            "cwctype": "cpp",
+            "array": "cpp",
+            "atomic": "cpp",
+            "strstream": "cpp",
+            "bit": "cpp",
+            "*.tcc": "cpp",
+            "bitset": "cpp",
+            "chrono": "cpp",
+            "codecvt": "cpp",
+            "compare": "cpp",
+            "complex": "cpp",
+            "concepts": "cpp",
+            "condition_variable": "cpp",
+            "cstdint": "cpp",
+            "deque": "cpp",
+            "list": "cpp",
+            "map": "cpp",
+            "set": "cpp",
+            "unordered_map": "cpp",
+            "vector": "cpp",
+            "exception": "cpp",
+            "algorithm": "cpp",
+            "functional": "cpp",
+            "iterator": "cpp",
+            "memory": "cpp",
+            "memory_resource": "cpp",
+            "numeric": "cpp",
+            "optional": "cpp",
+            "random": "cpp",
+            "ratio": "cpp",
+            "string": "cpp",
+            "string_view": "cpp",
+            "system_error": "cpp",
+            "tuple": "cpp",
+            "type_traits": "cpp",
+            "utility": "cpp",
+            "fstream": "cpp",
+            "initializer_list": "cpp",
+            "iomanip": "cpp",
+            "iosfwd": "cpp",
+            "iostream": "cpp",
+            "istream": "cpp",
+            "limits": "cpp",
+            "mutex": "cpp",
+            "new": "cpp",
+            "ranges": "cpp",
+            "shared_mutex": "cpp",
+            "sstream": "cpp",
+            "stdexcept": "cpp",
+            "stop_token": "cpp",
+            "streambuf": "cpp",
+            "thread": "cpp",
+            "cfenv": "cpp",
+            "cinttypes": "cpp",
+            "typeindex": "cpp",
+            "typeinfo": "cpp",
+            "valarray": "cpp",
+            "variant": "cpp",
+            "forward_list": "cpp",
+            "unordered_set": "cpp",
+            "regex": "cpp"
         },
-        "cmake.cmakePath": "C:/msys64/usr/bin/cmake.exe",
+        "cmake.cmakePath": "C:/Program Files/CMake/bin/cmake.exe",
+        "cmakeFormat.args": [
+            "--config-files ${workspaceFolder}/.cmake-format.json"
+        ],
+        "cmakeFormat.cwd": "${workspaceFolder}",
         "json.schemas": [
             {
                 "fileMatch": [
@@ -92,6 +173,17 @@
                 ],
                 "url": "./simulator/json-schema/env-schema.json"
             }
-        ]
+        ],
+        "[cpp]": {
+            "editor.tabSize": 4,
+            "editor.insertSpaces": true,
+        },
+        "[makefile]": {
+            "editor.insertSpaces": false
+        },
+        "[markdown]": {
+            "editor.insertSpaces": true,
+            "editor.tabSize": 2
+        }
     }
 }

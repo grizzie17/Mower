@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <stdint.h>
-#include <unistd.h>
+// #include <unistd.h>
 
 #define INPUT  0x00
 #define OUTOUT 0x01
@@ -51,4 +51,4 @@ analogWrite( uint8_t pin, int val );
 unsigned long
 pulseIn( uint8_t pin, uint8_t state, unsigned long timeout = 1000000UL );
 
-#endif    // HPP_ARDUINO
+#endif  // HPP_ARDUINO

@@ -1,6 +1,26 @@
 {
     "configurations": [
         {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/**/**",
+                "${workspaceFolder}/**/**/**",
+                "${workspaceFolder}/googletest/googletest/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.18362.0",
+            "compilerPath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.27.29110/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "msvc-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        },
+        {
             "name": "wsl",
             "intelliSenseMode": "gcc-x64",
             "compilerPath": "/usr/bin/gcc",
@@ -19,32 +39,6 @@
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/**/**",
                 "${workspaceFolder}/**/**/**"
-            ]
-        },
-        {
-            "name": "Win32",
-            "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:/msys64/mingw64/bin/x86_64-w64-mingw32-gcc.exe",
-            "cStandard": "c11",
-            "cppStandard": "c++17",
-            "defines": [
-                "CONFNAME=MSYS",
-                "_DEBUG",
-                "DEVROOT=${workspaceFolder}",
-                "OPENGL",
-                "GLUT",
-                "SIMULATOR",
-                "_USE_MATH_DEFINES"
-            ],
-            "includePath": [
-                ".",
-                "${workspaceFolder}",
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/**/**",
-                "${workspaceFolder}/**/**/**",
-                "${workspaceFolder}/**/**/**/**",
-                "${workspaceFolder}/**/**/**/**/**",
-                "${workspaceFolder}/googletest/googletest/include"
             ]
         },
         {

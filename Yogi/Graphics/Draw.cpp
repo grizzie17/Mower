@@ -12,9 +12,9 @@ namespace Yogi { namespace Graphics {
 
 OpenGLDraw::OpenGLDraw( HINSTANCE hInst )
         : m_hInstance( hInst )
-        , m_hDC( 0 )     //!< Device Context
-        , m_hWnd( 0 )    //!< Window Handle
-        , m_hRC( 0 )     //!< GL resource handle
+        , m_hDC( 0 )   //!< Device Context
+        , m_hWnd( 0 )  //!< Window Handle
+        , m_hRC( 0 )   //!< GL resource handle
         , m_tScreenSize( 800, 800 * 3 / 4 )
         , m_pCamera( 0 )
         , m_nStackMatrix( 0 )
@@ -62,7 +62,7 @@ OpenGLDraw::initialize( HWND hWnd, HDC hDC )
 	glLoadIdentity();
 
 	return 0;
-#endif    // 0
+#endif  // 0
 }
 
 #if 0
@@ -98,7 +98,7 @@ OpenGLDraw::setHDC( HDC hDC, HWND hWindow )
 	wglMakeCurrent( m_hDC, m_hRC );
 	return true;
 }
-#endif    // 0
+#endif  // 0
 
 void
 OpenGLDraw::setCamera( CCamera* pCamera )
@@ -149,10 +149,16 @@ OpenGLDraw::placeLight( unsigned id, const CPoint& position )
     GLfloat ambient[] = { 0, 1, 0, 1 };
     glLightfv( e, GL_AMBIENT, ambient );
     glLightfv( e, GL_DIFFUSE, ambient );
-    GLfloat ipos[]
-            = { GLfloat( position.x ), GLfloat( position.y ), GLfloat( position.z ), 0.0f };
+    GLfloat ipos[] = { GLfloat( position.x ), GLfloat( position.y ),
+        GLfloat( position.z ), 0.0f };
     glLightfv( e, GL_POSITION, ipos );
     glEnable( e );
+}
+
+void
+OpenGLDraw::normal( const CUnitVector& v )
+{
+    glNormal3d( v.x, v.y, v.z );
 }
 
 bool
@@ -281,4 +287,4 @@ OpenGLDraw::setColor( double r, double g, double b )
     glColor3f( GLfloat( r ), GLfloat( g ), GLfloat( b ) );
 }
 
-}}    // namespace Yogi::Graphics
+}}  // namespace Yogi::Graphics

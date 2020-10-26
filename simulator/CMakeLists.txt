@@ -5,7 +5,7 @@ include_directories(nlohmann_json/include)
 
 
 set( SOURCES
-		WinMain.cpp
+		Mower.cpp
 		Simulator.cpp
 		Simulator.hpp
 		Environment.cpp

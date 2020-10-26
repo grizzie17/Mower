@@ -2,6 +2,7 @@
 #include "math_helper.hpp"
 
 #define _USE_MATH_DEFINES
+#include <cfloat>
 #include <cmath>
 #include <math.h>
 
@@ -20,13 +21,13 @@ normalizeDegrees( double degrees )
 double
 radiansFromDegrees( double degrees )
 {
-    return ( normalizeDegrees( degrees ) * M_PI ) / 180.0;
+    return ( normalizeDegrees( degrees ) * constants::PI ) / 180.0;
 }
 
 double
 degreesFromRadians( double radians )
 {
-    return ( radians * 180.0 ) / M_PI;
+    return ( radians * 180.0 ) / constants::PI;
 }
 
 static double
@@ -35,10 +36,9 @@ fRound( double f )
     double v = 0.0;
     //const double denom = 100000000.0;
 
-    // float v = f;
-    if ( ::fabs( f ) <= 0.0f + std::numeric_limits<double>::epsilon() )
+    if ( ::fabs( f ) <= 0.0 + DBL_EPSILON )
     {
-        v = 0.0f;
+        v = 0.0;
     }
     else
     {
@@ -64,4 +64,4 @@ fSine( double rads )
 }
 
 
-}}    // namespace Yogi::Utilities
+}}  // namespace Yogi::Utilities

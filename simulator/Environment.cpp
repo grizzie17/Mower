@@ -18,9 +18,9 @@ using json = nlohmann::json;
 namespace Yogi { namespace Simulator {
 
 Environment::Environment()
-        : m_tOrigin()             //! < 0,0,0 origin
-        , m_dRowSpacing( 1.0 )    //! < one meter spacing
-        , m_dColSpacing( 1.0 )    //! < one meter spacing
+        : m_tOrigin()           //! < 0,0,0 origin
+        , m_dRowSpacing( 1.0 )  //! < one meter spacing
+        , m_dColSpacing( 1.0 )  //! < one meter spacing
         , m_nRows( DTM_ROWS )
         , m_nCols( DTM_COLS )
         , m_aDTM()
@@ -40,6 +40,28 @@ Environment::display( VDraw* pDraw )
     double x = m_tOrigin.x;
     double x1 = x + m_dColSpacing;
 
+    for ( int i = 0; i < m_nRows - 1; ++i )
+    {
+        x = m_tOrigin.x;
+        x1 = x + m_dColSpacing;
+        pDraw->setColor( 0, 0.40, 0 );
+        pDraw->beginTriangleStrip();
+        // pDraw->beginLineStrip();
+        for ( int j = 0; j < m_nCols; ++j )
+        {
+            pDraw->normal( CUnitVector( 0, 0, 1 ) );
+            pDraw->polypoint( x, y, m_aDTM[i][j] );
+            pDraw->normal( CUnitVector( 0, 0, 1 ) );
+            pDraw->polypoint( x, y1, m_aDTM[i + 1][j] );
+            x = x1;
+            x1 += m_dColSpacing;
+        }
+        y = y1;
+        y1 -= m_dRowSpacing;
+        // pDraw->endLineStrip();
+        pDraw->endTriangleStrip();
+    }
+
     if ( 0 < m_nNumLights )
     {
         pDraw->enableLights();
@@ -49,25 +71,6 @@ Environment::display( VDraw* pDraw )
         }
     }
 
-    for ( int i = 0; i < m_nRows - 1; ++i )
-    {
-        x = m_tOrigin.x;
-        x1 = x + m_dColSpacing;
-        pDraw->setColor( 0, 0.60, 0 );
-        // pDraw->beginTriangleStrip();
-        pDraw->beginLineStrip();
-        for ( int j = 0; j < m_nCols; ++j )
-        {
-            pDraw->polypoint( x, y, m_aDTM[i][j] );
-            pDraw->polypoint( x, y1, m_aDTM[i + 1][j] );
-            x = x1;
-            x1 += m_dColSpacing;
-        }
-        y = y1;
-        y1 -= m_dRowSpacing;
-        pDraw->endLineStrip();
-        // pDraw->endTriangleStrip();
-    }
     // double x = m_tOrigin.x;
     // double x1 = m_tOrigin.x + m_dRowSpacing;
     // double y = m_tOrigin.y;
@@ -159,8 +162,8 @@ Environment::readEnvironment( const char* sFilename )
                     {
                         m_aDTM = TArray2<double>( m_nRows, m_nCols );
                         unsigned nRowCurrent = 0;
-                        for ( auto jRow = jElevations.begin(); jRow != jElevations.end();
-                                ++jRow )
+                        for ( auto jRow = jElevations.begin();
+                                jRow != jElevations.end(); ++jRow )
                         {
                             if ( jRow->is_array() )
                             {
@@ -168,10 +171,11 @@ Environment::readEnvironment( const char* sFilename )
                                 if ( nColsSize == m_nCols )
                                 {
                                     unsigned nColCurrent = 0;
-                                    for ( auto jCol = jRow->begin(); jCol != jRow->end();
-                                            ++jCol )
+                                    for ( auto jCol = jRow->begin();
+                                            jCol != jRow->end(); ++jCol )
                                     {
-                                        m_aDTM[nRowCurrent][nColCurrent] = jCol.value();
+                                        m_aDTM[nRowCurrent][nColCurrent]
+                                                = jCol.value();
                                         ++nColCurrent;
                                     }
                                 }
@@ -189,7 +193,8 @@ Environment::readEnvironment( const char* sFilename )
                 int nLight = 0;
                 if ( 0 < m_nNumLights )
                 {
-                    for ( auto jLight = jLights.begin(); jLight != jLights.end(); ++jLight )
+                    for ( auto jLight = jLights.begin();
+                            jLight != jLights.end(); ++jLight )
                     {
                         auto jProp = jLight.value();
                         m_aLights[nLight].id = jProp["id"];
@@ -208,4 +213,4 @@ Environment::readEnvironment( const char* sFilename )
     return true;
 }
 
-}}    // namespace Yogi::Simulator
+}}  // namespace Yogi::Simulator

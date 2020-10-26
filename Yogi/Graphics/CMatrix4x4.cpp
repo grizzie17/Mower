@@ -17,51 +17,51 @@ namespace Yogi { namespace Graphics {
 //===============================================
 CMatrix4x4::CMatrix4x4()
         : m_m {
-            1, 0, 0, 0,    //
-            0, 1, 0, 0,    //
-            0, 0, 1, 0,    //
-            0, 0, 0, 1     //
+            1, 0, 0, 0,  //
+            0, 1, 0, 0,  //
+            0, 0, 1, 0,  //
+            0, 0, 0, 1   //
         }
 {}
 
 CMatrix4x4::CMatrix4x4( const CMatrix4x4& r )
         : m_m {
-            r[0][0], r[0][1], r[0][2], r[0][3],    //
-            r[1][0], r[1][1], r[1][2], r[1][3],    //
-            r[2][0], r[2][1], r[2][2], r[2][3],    //
-            r[3][0], r[3][1], r[3][2], r[3][3]     //
+            r[0][0], r[0][1], r[0][2], r[0][3],  //
+            r[1][0], r[1][1], r[1][2], r[1][3],  //
+            r[2][0], r[2][1], r[2][2], r[2][3],  //
+            r[3][0], r[3][1], r[3][2], r[3][3]   //
         }
 {}
 
-CMatrix4x4::CMatrix4x4(                                   //
-        double m0, double m1, double m2, double m3,       //
-        double m4, double m5, double m6, double m7,       //
-        double m8, double m9, double m10, double m11,     //
-        double m12, double m13, double m14, double m15    //
+CMatrix4x4::CMatrix4x4(                                 //
+        double m0, double m1, double m2, double m3,     //
+        double m4, double m5, double m6, double m7,     //
+        double m8, double m9, double m10, double m11,   //
+        double m12, double m13, double m14, double m15  //
         )
         : m_m {
-            m0, m1, m2, m3,       //
-            m4, m5, m6, m7,       //
-            m8, m9, m10, m11,     //
-            m12, m13, m14, m15    //
+            m0, m1, m2, m3,     //
+            m4, m5, m6, m7,     //
+            m8, m9, m10, m11,   //
+            m12, m13, m14, m15  //
         }
 {}
 
 CMatrix4x4::CMatrix4x4( const glm::mat4x4& r )
         : m_m {
-            r[0][0], r[0][1], r[0][2], r[0][3],    //
-            r[1][0], r[1][1], r[1][2], r[1][3],    //
-            r[2][0], r[2][1], r[2][2], r[2][3],    //
-            r[3][0], r[3][1], r[3][2], r[3][3]     //
+            r[0][0], r[0][1], r[0][2], r[0][3],  //
+            r[1][0], r[1][1], r[1][2], r[1][3],  //
+            r[2][0], r[2][1], r[2][2], r[2][3],  //
+            r[3][0], r[3][1], r[3][2], r[3][3]   //
         }
 {}
 
 CMatrix4x4::CMatrix4x4( double diag )
         : m_m {
-            diag, 0, 0, 0,    //
-            0, diag, 0, 0,    //
-            0, 0, diag, 0,    //
-            0, 0, 0, 1        //
+            diag, 0, 0, 0,  //
+            0, diag, 0, 0,  //
+            0, 0, diag, 0,  //
+            0, 0, 0, 1      //
         }
 {}
 
@@ -72,7 +72,7 @@ CMatrix4x4::~CMatrix4x4()
 //===============================================
 // public
 //===============================================
-void
+const CMatrix4x4&
 CMatrix4x4::set( const CMatrix4x4& r )
 {
     m_m[0][0] = r.m_m[0][0];
@@ -94,6 +94,8 @@ CMatrix4x4::set( const CMatrix4x4& r )
     m_m[3][1] = r.m_m[3][1];
     m_m[3][2] = r.m_m[3][2];
     m_m[3][3] = r.m_m[3][3];
+
+    return *this;
 }
 
 
@@ -138,11 +140,11 @@ CMatrix4x4::getRef( unsigned row, unsigned col )
 glm::mat4x4
 CMatrix4x4::getMat4x4() const
 {
-    glm::mat4x4 m4(                                        //
-            m_m[0][0], m_m[0][1], m_m[0][2], m_m[0][3],    //
-            m_m[1][0], m_m[1][1], m_m[1][2], m_m[1][3],    //
-            m_m[2][0], m_m[2][1], m_m[2][2], m_m[2][3],    //
-            m_m[3][0], m_m[3][1], m_m[3][2], m_m[3][3]     //
+    glm::mat4x4 m4(                                      //
+            m_m[0][0], m_m[0][1], m_m[0][2], m_m[0][3],  //
+            m_m[1][0], m_m[1][1], m_m[1][2], m_m[1][3],  //
+            m_m[2][0], m_m[2][1], m_m[2][2], m_m[2][3],  //
+            m_m[3][0], m_m[3][1], m_m[3][2], m_m[3][3]   //
     );
     return m4;
 }
@@ -158,11 +160,11 @@ CMatrix4x4::translate( const CVector& r )
 CMatrix4x4
 CMatrix4x4::transpose() const
 {
-    CMatrix4x4 m(                                          // load transpose
-            m_m[0][0], m_m[1][0], m_m[2][0], m_m[3][0],    //
-            m_m[0][1], m_m[1][1], m_m[2][1], m_m[3][1],    //
-            m_m[0][2], m_m[1][2], m_m[2][2], m_m[3][2],    //
-            m_m[0][3], m_m[1][3], m_m[2][3], m_m[3][3]     //
+    CMatrix4x4 m(                                        // load transpose
+            m_m[0][0], m_m[1][0], m_m[2][0], m_m[3][0],  //
+            m_m[0][1], m_m[1][1], m_m[2][1], m_m[3][1],  //
+            m_m[0][2], m_m[1][2], m_m[2][2], m_m[3][2],  //
+            m_m[0][3], m_m[1][3], m_m[2][3], m_m[3][3]   //
     );
     return m;
 }
@@ -170,10 +172,14 @@ CMatrix4x4::transpose() const
 double
 CMatrix4x4::determinant() const
 {
-    return ( ( m_m[0][0] * m_m[3][2] ) * ( m_m[2][1] * m_m[3][3] - m_m[2][3] * m_m[3][1] ) )
-            + ( ( m_m[0][1] * m_m[2][3] ) * ( m_m[2][2] * m_m[3][0] - m_m[2][0] * m_m[3][2] ) )
-            + ( ( m_m[0][2] * m_m[2][0] ) * ( m_m[1][3] * m_m[3][1] - m_m[2][1] * m_m[3][3] ) )
-            + ( ( m_m[0][3] * m_m[2][1] ) * ( m_m[1][0] * m_m[3][2] - m_m[1][2] * m_m[3][0] ) );
+    return ( ( m_m[0][0] * m_m[3][2] )
+                   * ( m_m[2][1] * m_m[3][3] - m_m[2][3] * m_m[3][1] ) )
+            + ( ( m_m[0][1] * m_m[2][3] )
+                    * ( m_m[2][2] * m_m[3][0] - m_m[2][0] * m_m[3][2] ) )
+            + ( ( m_m[0][2] * m_m[2][0] )
+                    * ( m_m[1][3] * m_m[3][1] - m_m[2][1] * m_m[3][3] ) )
+            + ( ( m_m[0][3] * m_m[2][1] )
+                    * ( m_m[1][0] * m_m[3][2] - m_m[1][2] * m_m[3][0] ) );
 }
 
 //		r[0][0], r[0][1], r[0][2], r[0][3],    //  0,  1,  2,  3
@@ -184,9 +190,9 @@ CMatrix4x4::determinant() const
 CPoint
 CMatrix4x4::transformPoint( const CPoint& p ) const
 {
-    float x = p.x * m_m[0][0] + p.y * m_m[0][1] + p.z * m_m[0][2] + m_m[0][3];    //
-    float y = p.x * m_m[1][0] + p.y * m_m[1][1] + p.z * m_m[1][2] + m_m[1][3];    //
-    float z = p.x * m_m[2][0] + p.y * m_m[2][1] + p.z * m_m[2][2] + m_m[2][3];    //
+    float x = p.x * m_m[0][0] + p.y * m_m[0][1] + p.z * m_m[0][2] + m_m[0][3];
+    float y = p.x * m_m[1][0] + p.y * m_m[1][1] + p.z * m_m[1][2] + m_m[1][3];
+    float z = p.x * m_m[2][0] + p.y * m_m[2][1] + p.z * m_m[2][2] + m_m[2][3];
     float w = p.x * m_m[3][0] + p.y * m_m[3][1] + p.z * m_m[3][2] + m_m[3][3];
 
     x *= w;
@@ -310,34 +316,56 @@ CMatrix4x4::buildRotateAroundZAxis( double rads )
 CMatrix4x4
 CMatrix4x4::buildFromPitchAndYaw( double pitch, double yaw )
 {
+#if false
+    CMatrix4x4 mRoll;  // identity X
+    CMatrix4x4 mYaw = CMatrix4x4::buildRotateAroundZAxis( yaw );
+    CMatrix4x4 mPitch = CMatrix4x4::buildRotateAroundYAxis( -pitch );
+
+    CMatrix4x4 m = mYaw;
+    m *= mPitch;
+    m *= mRoll;
+#endif
+
     // float cosB = fCosine( -pitch );
     // float sinB = fSine( -pitch );
     // float cosA = fCosine( yaw );
     // float sinA = fSine( yaw );
     // float cosY = fCosine( 0.0f );
     // float sinY = fSine( 0.0f );
-
-    double cP = fCosine( -pitch );    // cosB
-    double sP = fSine( -pitch );      // sinB
-    double cY = fCosine( yaw );       // cosA
-    double sY = fSine( yaw );         // sinA
-    double cR = fCosine( 0.0 );       // cosY
+#if true
+    double cP = fCosine( -pitch );  // cosB
+    double sP = fSine( -pitch );    // sinB
+    double cY = fCosine( yaw );     // cosA
+    double sY = fSine( yaw );       // sinA
+    double cR = fCosine( 0.0 );     // cosY
     double sR = fSine( 0.0 );
 
     CMatrix4x4 m;
-#if false
-	m[0][0] = cY * cP;
-	m[0][1] = -sY;
-	m[0][2] = cY * sP;
+#    if true
+    m[0][0] = cY * cP;
+    m[0][1] = cY * sP * sR - sY * cR;
+    m[0][2] = cY * sP * cR + sY * sR;
 
-	m[1][0] = sY * cP;
-	m[1][1] = cY;
-	m[1][2] = sY * sP;
+    m[1][0] = sY * cP;
+    m[1][1] = sY * sP * sR + cY * cR;
+    m[1][2] = sY * sP * cR - cY * sR;
 
-	m[2][0] = -sP;
-	m[2][1] = 0;
-	m[2][2] = cP;
-#elif false
+    m[2][0] = -sP;
+    m[2][1] = cP * sR;
+    m[2][2] = cP * cR;
+#    elif false
+    m[0][0] = cY * cP;
+    m[0][1] = -sY;
+    m[0][2] = cY * sP;
+
+    m[1][0] = sY * cP;
+    m[1][1] = cY;
+    m[1][2] = sY * sP;
+
+    m[2][0] = -sP;
+    m[2][1] = 0;
+    m[2][2] = cP;
+#    elif false
     m[0][0] = cP * cY;
     m[0][1] = cP * -sY;
     m[0][2] = sP;
@@ -349,7 +377,7 @@ CMatrix4x4::buildFromPitchAndYaw( double pitch, double yaw )
     m[2][0] = -sP * cY;
     m[2][1] = -sP * -sY;
     m[2][2] = cP;
-#else
+#    else
     m[0][0] = cP * cY;
     m[0][1] = sR * sP * cY - cR * sY;
     m[0][2] = cR * sP * cY + sR * sY;
@@ -361,6 +389,7 @@ CMatrix4x4::buildFromPitchAndYaw( double pitch, double yaw )
     m[2][0] = -sP;
     m[2][1] = sR * cP;
     m[2][2] = cR * cP;
+#    endif
 #endif
 
     // m[0][0] = cosA * cosB;                         // cv*cw
@@ -425,7 +454,7 @@ cP*0   + 0*0  + sP*1
 void
 build_4x4_rotation_matrix( float x, float y, float z, float a, float* matrix )
 {
-    a = a * M_PI / 180.0;    // convert to radians
+    a = a * constants::PI / 180.0;  // convert to radians
     float s = sin( a );
     float c = cos( a );
     float t = 1.0 - c;
@@ -459,4 +488,4 @@ build_4x4_rotation_matrix( float x, float y, float z, float a, float* matrix )
 //===============================================
 
 
-}}    // namespace Yogi::Graphics
+}}  // namespace Yogi::Graphics

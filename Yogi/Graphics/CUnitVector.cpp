@@ -12,126 +12,127 @@ namespace Yogi { namespace Graphics {
 
 
 CUnitVector::CUnitVector()
-		: inherited()
+        : inherited()
 {
-	normalize();
+    normalize();
 }
 
 CUnitVector::CUnitVector( double x, double y, double z )
-		: inherited( x, y, z )
+        : inherited( x, y, z )
 {
-	normalize();
+    normalize();
 }
 
 CUnitVector::CUnitVector( const CUnitVector& r )
-		: inherited( r )
+        : inherited( r )
 {
-	normalize();
+    normalize();
 }
 
 CUnitVector::CUnitVector( const CVector& r )
-		: inherited( r )
+        : inherited( r )
 {
-	normalize();
+    normalize();
 }
 
 CUnitVector::CUnitVector( const CPoint& r )
-		: inherited( r )
+        : inherited( r )
 {
-	normalize();
+    normalize();
 }
 
 CUnitVector::CUnitVector( const glm::vec3& r )
-		: inherited( r )
+        : inherited( r )
 {
-	normalize();
+    normalize();
 }
 
 void
 CUnitVector::set( double x, double y, double z )
 {
-	inherited::set( x, y, z );
+    inherited::set( x, y, z );
 
-	normalize();
+    normalize();
 }
 
 void
 CUnitVector::normalize()
 {
-	double dLen = getLength();
-	if ( __DBL_EPSILON__ < ::abs( dLen ) )
-	{
-		x /= dLen;
-		y /= dLen;
-		z /= dLen;
-	}
-	else
-	{
-		x = 1.0;
-		y = 0.0;
-		z = 0.0;
-	}
+    double dLen = getLength();
+    if ( __DBL_EPSILON__ < ::abs( dLen ) )
+    {
+        x /= dLen;
+        y /= dLen;
+        z /= dLen;
+    }
+    else
+    {
+        x = 1.0;
+        y = 0.0;
+        z = 0.0;
+    }
 }
 
 
 CVector
 CUnitVector::scaleVector( double magnitude ) const
 {
-	double x_ = this->x * magnitude;
-	double y_ = this->y * magnitude;
-	double z_ = this->z * magnitude;
+    double x_ = this->x * magnitude;
+    double y_ = this->y * magnitude;
+    double z_ = this->z * magnitude;
 
-	return CVector( x_, y_, z_ );
+    return CVector( x_, y_, z_ );
 }
 
 //static
 CUnitVector
 CUnitVector::buildFromPitchAndYaw( double fPitch, double fYaw )
 {
-	// float cosPitch = fCosine( fPitch );
-	// float sinPitch = fSine( fPitch );
-	// float cosYaw = fCosine( fYaw );
-	// float sinYaw = fSine( fYaw );
-	double cosPitch = ::cos( fPitch );
-	double sinPitch = ::sin( fPitch );
-	double cosYaw = ::cos( fYaw );
-	double sinYaw = ::sin( fYaw );
-	double cosRoll = ::cos( 0.0 );
-	double sinRoll = ::sin( 0.0 );
+    // float cosPitch = fCosine( fPitch );
+    // float sinPitch = fSine( fPitch );
+    // float cosYaw = fCosine( fYaw );
+    // float sinYaw = fSine( fYaw );
+    CMatrix4x4 m = CMatrix4x4::buildFromPitchAndYaw( fPitch, fYaw );
+    // double cosPitch = ::cos( fPitch );
+    // double sinPitch = ::sin( fPitch );
+    // double cosYaw = ::cos( fYaw );
+    // double sinYaw = ::sin( fYaw );
+    // double cosRoll = ::cos( 0.0 );
+    // double sinRoll = ::sin( 0.0 );
 
-	CMatrix4x4 m(                 //
-			cosYaw,               //
-			sinYaw * sinPitch,    //
-			sinYaw * cosPitch,    //
-			0,                    //
+    // CMatrix4x4 m(                 //
+    // 		cosYaw,               //
+    // 		sinYaw * sinPitch,    //
+    // 		sinYaw * cosPitch,    //
+    // 		0,                    //
 
-			0,            //
-			cosPitch,     //
-			-sinPitch,    //
-			0,            //
+    // 		0,            //
+    // 		cosPitch,     //
+    // 		-sinPitch,    //
+    // 		0,            //
 
-			-sinYaw,              //
-			cosYaw * sinPitch,    //
-			cosYaw * cosPitch,    //
-			0,                    //
+    // 		-sinYaw,              //
+    // 		cosYaw * sinPitch,    //
+    // 		cosYaw * cosPitch,    //
+    // 		0,                    //
 
-			0, 0, 0, 1    //
-	);
+    // 		0, 0, 0, 1    //
+    // );
 
-	CUnitVector u = m * CVector( 1, 0, 0 );
+    CUnitVector u = m * CVector( 1, 0, 0 );
 
-	//
-	// CUnitVector u( -cosPitch * sinYaw, sinPitch, -cosPitch * cosYaw );
-	// CUnitVector u(                                               //
-	// 		-sinPitch * cosYaw - cosPitch * sinRoll * sinYaw,    //
-	// 		sinPitch * sinYaw - cosPitch * sinRoll * cosYaw,     //
-	// 		cosPitch * cosRoll                                   //
-	// 															 // cosYaw * cosPitch, //
-	// 															 // sinYaw * cosPitch, //
-	// 															 // sinPitch //
-	// );
-	return u;
+    //
+    // CUnitVector u( -cosPitch * sinYaw, sinPitch, -cosPitch * cosYaw );
+    // CUnitVector u(                                               //
+    // 		-sinPitch * cosYaw - cosPitch * sinRoll * sinYaw,    //
+    // 		sinPitch * sinYaw - cosPitch * sinRoll * cosYaw,     //
+    // 		cosPitch * cosRoll                                   //
+    // 															 // cosYaw * cosPitch, //
+    // 															 // sinYaw * cosPitch, //
+    // 															 // sinPitch //
+    // );
+    return u;
 }
 
 
-}}    // namespace Yogi::Graphics
+}}  // namespace Yogi::Graphics

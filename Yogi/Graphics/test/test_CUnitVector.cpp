@@ -60,7 +60,7 @@ TEST( CUnitVector, buildFromPitchAndYaw )
     float fPitch = radiansFromDegrees( 45.0 );
     float fYaw = radiansFromDegrees( 45.0 );
 
-    CUnitVector u = CUnitVector::buildFromPitchAndYaw( -fPitch, fYaw );
+    CUnitVector u = CUnitVector::buildFromPitchAndYaw( fPitch, fYaw );
 
     CUnitVector a( 1, 1, 1 );
 
